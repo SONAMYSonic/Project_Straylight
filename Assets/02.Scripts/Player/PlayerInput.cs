@@ -10,6 +10,13 @@ public class PlayerInput : MonoBehaviour
     public bool IsMeleeTriggered { get; private set; }
     public bool IsUltTriggered { get; private set; }
 
+    public bool IsAttackHeld { get; private set; } // 총 (연사)
+    public bool IsAttackTap { get; private set; }  // 칼 (단발)
+
+    public bool IsSwapVo { get; private set; } // 1번 키
+    public bool IsSwapDa { get; private set; } // 2번 키
+    public bool IsSwapVi { get; private set; } // 3번 키
+
     private Camera mainCam;
 
     void Start()
@@ -30,8 +37,12 @@ public class PlayerInput : MonoBehaviour
 
         // 3. 액션 키 입력
         IsDashTriggered = Input.GetKeyDown(KeyCode.RightShift);
-        IsFireHeld = Input.GetMouseButton(0); // 0: 좌클릭
-        IsMeleeTriggered = Input.GetMouseButtonDown(1); // 1: 우클릭
+        IsAttackHeld = Input.GetMouseButton(0);     // 꾹 누르고 있음
+        IsAttackTap = Input.GetMouseButtonDown(0);  // 딸깍 클릭함
         IsUltTriggered = Input.GetKeyDown(KeyCode.Space);
+
+        IsSwapVo = Input.GetKeyDown(KeyCode.Alpha1);
+        IsSwapDa = Input.GetKeyDown(KeyCode.Alpha2);
+        IsSwapVi = Input.GetKeyDown(KeyCode.Alpha3);
     }
 }

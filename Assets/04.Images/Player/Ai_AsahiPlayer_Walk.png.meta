@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 1551a2fd67dcdc849b015189d4082859
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2153582496795345378
+    second: Ai_AsahiPlayer_Walk_0
+  - first:
+      213: -2988369188282833016
+    second: Ai_AsahiPlayer_Walk_1
+  - first:
+      213: 8320045111622551204
+    second: Ai_AsahiPlayer_Walk_2
+  - first:
+      213: 2207626779346788191
+    second: Ai_AsahiPlayer_Walk_3
+  - first:
+      213: -426002570670709081
+    second: Ai_AsahiPlayer_Walk_4
+  - first:
+      213: 1084670744799284358
+    second: Ai_AsahiPlayer_Walk_5
+  - first:
+      213: -8338616406017418428
+    second: Ai_AsahiPlayer_Walk_6
+  - first:
+      213: 1837093699255447754
+    second: Ai_AsahiPlayer_Walk_7
+  - first:
+      213: 5575540904637126968
+    second: Ai_AsahiPlayer_Walk_8
+  - first:
+      213: 5738867893433035184
+    second: Ai_AsahiPlayer_Walk_9
+  - first:
+      213: -6688871283098128896
+    second: Ai_AsahiPlayer_Walk_10
+  - first:
+      213: 5747548192796811386
+    second: Ai_AsahiPlayer_Walk_11
+  - first:
+      213: 204958184517760321
+    second: Ai_AsahiPlayer_Walk_12
+  - first:
+      213: -2500134040063175130
+    second: Ai_AsahiPlayer_Walk_13
+  - first:
+      213: 1913579840975638459
+    second: Ai_AsahiPlayer_Walk_14
+  - first:
+      213: -5630385437853316091
+    second: Ai_AsahiPlayer_Walk_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1544
+        width: 316
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1eb30c1120fc12e0800000000000000
+      internalID: -2153582496795345378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 1544
+        width: 314
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 887edaa6e0e2786d0800000000000000
+      internalID: -2988369188282833016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 1543
+        width: 317
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a6cc7192fcb67370800000000000000
+      internalID: 8320045111622551204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 1544
+        width: 315
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5fda9bfbd013ae10800000000000000
+      internalID: 2207626779346788191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1032
+        width: 336
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6e4c54be8861af0800000000000000
+      internalID: -426002570670709081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1032
+        width: 344
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c050aab468d0f00800000000000000
+      internalID: 1084670744799284358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 1032
+        width: 341
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b56110f88474c80800000000000000
+      internalID: -8338616406017418428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 1032
+        width: 336
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0ba337cfaae7910800000000000000
+      internalID: 1837093699255447754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 515
+        width: 293
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8395e8b89ec406d40800000000000000
+      internalID: 5575540904637126968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 514
+        width: 310
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b968f871fd84af40800000000000000
+      internalID: 5738867893433035184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 515
+        width: 313
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00eef96d10b5c23a0800000000000000
+      internalID: -6688871283098128896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_11
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 515
+        width: 288
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70a71921a463cf40800000000000000
+      internalID: 5747548192796811386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 8
+        width: 291
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1457df5026828d200800000000000000
+      internalID: 204958184517760321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_13
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 8
+        width: 310
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6261c2b365dbd4dd0800000000000000
+      internalID: -2500134040063175130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_14
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 7
+        width: 310
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf83be0ab66e8a10800000000000000
+      internalID: 1913579840975638459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ai_AsahiPlayer_Walk_15
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 9
+        width: 288
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50c883c764adcd1b0800000000000000
+      internalID: -5630385437853316091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ai_AsahiPlayer_Walk_0: -2153582496795345378
+      Ai_AsahiPlayer_Walk_1: -2988369188282833016
+      Ai_AsahiPlayer_Walk_10: -6688871283098128896
+      Ai_AsahiPlayer_Walk_11: 5747548192796811386
+      Ai_AsahiPlayer_Walk_12: 204958184517760321
+      Ai_AsahiPlayer_Walk_13: -2500134040063175130
+      Ai_AsahiPlayer_Walk_14: 1913579840975638459
+      Ai_AsahiPlayer_Walk_15: -5630385437853316091
+      Ai_AsahiPlayer_Walk_2: 8320045111622551204
+      Ai_AsahiPlayer_Walk_3: 2207626779346788191
+      Ai_AsahiPlayer_Walk_4: -426002570670709081
+      Ai_AsahiPlayer_Walk_5: 1084670744799284358
+      Ai_AsahiPlayer_Walk_6: -8338616406017418428
+      Ai_AsahiPlayer_Walk_7: 1837093699255447754
+      Ai_AsahiPlayer_Walk_8: 5575540904637126968
+      Ai_AsahiPlayer_Walk_9: 5738867893433035184
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
