@@ -1,12 +1,12 @@
 using UnityEngine;
-using IdolMasterFanGame;
+using IdolMasterFanGame; // [필수] IdolMode 인식을 위해 추가
 
 public class MeleeWeapon : MonoBehaviour
 {
     private int _damage;
     private IdolMode _currentMode;
 
-    // PlayerCombat에서 호출
+    // 공격 시 PlayerCombat에서 호출하여 스탯 설정
     public void SetStats(int damage, IdolMode mode)
     {
         _damage = damage;
@@ -20,7 +20,7 @@ public class MeleeWeapon : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                // 적에게 데미지와 "현재 내 속성"을 같이 전달
+                // [수정됨] 데미지와 함께 공격 속성(_currentMode)을 전달해야 상성 계산이 됩니다.
                 enemy.TakeDamage(_damage, _currentMode);
             }
         }

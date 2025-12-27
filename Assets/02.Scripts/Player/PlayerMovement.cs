@@ -45,9 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (input.MousePos != Vector2.zero)
         {
-            Vector2 lookDir = input.MousePos - rb.position;
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+            // 회전값 0으로 고정하여 스프라이트가 기울어지지 않도록 함
+            rb.rotation = 0f;
         }
     }
 

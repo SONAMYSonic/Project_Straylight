@@ -174,10 +174,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_0
       rect:
         serializedVersion: 2
-        x: 98
-        y: 1544
-        width: 316
-        height: 468
+        x: 99
+        y: 1545
+        width: 314
+        height: 466
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_1
       rect:
         serializedVersion: 2
-        x: 613
-        y: 1544
-        width: 314
-        height: 468
+        x: 614
+        y: 1545
+        width: 312
+        height: 466
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_2
       rect:
         serializedVersion: 2
-        x: 1121
-        y: 1543
-        width: 317
-        height: 469
+        x: 1122
+        y: 1544
+        width: 315
+        height: 467
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_3
       rect:
         serializedVersion: 2
-        x: 1632
-        y: 1544
-        width: 315
-        height: 468
+        x: 1633
+        y: 1545
+        width: 313
+        height: 466
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_4
       rect:
         serializedVersion: 2
-        x: 87
-        y: 1032
-        width: 336
-        height: 487
+        x: 88
+        y: 1033
+        width: 334
+        height: 485
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_5
       rect:
         serializedVersion: 2
-        x: 593
-        y: 1032
-        width: 344
-        height: 487
+        x: 594
+        y: 1033
+        width: 342
+        height: 485
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_6
       rect:
         serializedVersion: 2
-        x: 1111
-        y: 1032
-        width: 341
-        height: 487
+        x: 1112
+        y: 1033
+        width: 339
+        height: 485
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_7
       rect:
         serializedVersion: 2
-        x: 1625
-        y: 1032
-        width: 336
-        height: 487
+        x: 1626
+        y: 1033
+        width: 334
+        height: 485
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_8
       rect:
         serializedVersion: 2
-        x: 100
-        y: 515
-        width: 293
-        height: 500
+        x: 101
+        y: 516
+        width: 291
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,10 +372,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_9
       rect:
         serializedVersion: 2
-        x: 611
-        y: 514
-        width: 310
-        height: 502
+        x: 612
+        y: 515
+        width: 308
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,10 +394,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_10
       rect:
         serializedVersion: 2
-        x: 1125
-        y: 515
-        width: 313
-        height: 483
+        x: 1126
+        y: 516
+        width: 311
+        height: 481
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,10 +416,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_11
       rect:
         serializedVersion: 2
-        x: 1635
-        y: 515
-        width: 288
-        height: 483
+        x: 1636
+        y: 516
+        width: 286
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,10 +438,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_12
       rect:
         serializedVersion: 2
-        x: 128
-        y: 8
-        width: 291
-        height: 483
+        x: 129
+        y: 9
+        width: 289
+        height: 481
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -460,10 +460,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_13
       rect:
         serializedVersion: 2
-        x: 611
-        y: 8
-        width: 310
-        height: 483
+        x: 612
+        y: 9
+        width: 308
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -482,10 +482,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_14
       rect:
         serializedVersion: 2
-        x: 1127
-        y: 7
-        width: 310
-        height: 484
+        x: 1128
+        y: 8
+        width: 308
+        height: 482
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +504,10 @@ TextureImporter:
       name: Ai_AsahiPlayer_Walk_15
       rect:
         serializedVersion: 2
-        x: 1649
-        y: 9
-        width: 288
-        height: 482
+        x: 1650
+        y: 10
+        width: 286
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -526,7 +526,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1d76326d1d2dd4d439fefb9b1b3b590c
     internalID: 0
     vertices: []
     indices: 
