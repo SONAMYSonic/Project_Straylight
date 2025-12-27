@@ -1,52 +1,57 @@
 using UnityEngine;
+using IdolMasterFanGame; // 공용 Enum 사용을 위해 필수
 
 public class Bullet : MonoBehaviour
 {
     [Header("Settings")]
-    public float speed = 20f;
-    public float lifeTime = 2f; // 2초 뒤 자동 삭제
-    public int damage = 1;
+    [SerializeField] private float _speed = 20f;
+    [SerializeField] private float _lifeTime = 2f;
 
-    // 풀링 시스템에서는 Start가 아니라 OnEnable이 "생성 시점"입니다.
+    // 외부에서 주입받을 데이터
+    private int _damage;
+    private IdolMode _bulletMode;
+
     private void OnEnable()
     {
-        // 총알이 활성화될 때마다 수명 카운트 시작
-        Invoke(nameof(DisableBullet), lifeTime);
+        // 총알 수명 카운트
+        Invoke(nameof(DisableBullet), _lifeTime);
     }
 
     private void OnDisable()
     {
-        // 비활성화될 때 예약된 Invoke 취소 (안 하면 재사용될 때 꼬임)
         CancelInvoke();
     }
 
     void Update()
     {
-        // 스스로 앞(위쪽)으로 날아감
-        // 2D에서 transform.up은 초록색 화살표(Y축) 방향입니다.
-        // 총알 프리팹 회전값에 따라 날아가는 방향이 결정됩니다.
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        // 이동 로직
+        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+    }
+
+    // [핵심] PlayerCombat에서 총알을 만들자마자 이 함수를 호출해 줘야 함
+    public void SetBulletStats(int damage, IdolMode mode)
+    {
+        _damage = damage;
+        _bulletMode = mode;
     }
 
     private void DisableBullet()
     {
-        gameObject.SetActive(false); // Destroy 대신 비활성화 -> 풀로 돌아감
+        gameObject.SetActive(false);
     }
 
-    // 충돌 처리 (나중에 적 만들면 사용)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 태그가 Enemy인 물체와 부딪혔을 때
         if (collision.CompareTag("Enemy"))
         {
-            // 적 스크립트를 가져와서 데미지를 줌
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                // [수정됨] 데미지와 함께 "총알의 속성"도 같이 전달
+                enemy.TakeDamage(_damage, _bulletMode);
             }
 
-            DisableBullet(); // 총알은 사라짐
+            DisableBullet();
         }
         else if (collision.CompareTag("Wall"))
         {

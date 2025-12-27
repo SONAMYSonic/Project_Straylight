@@ -1,29 +1,26 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Image 컴포넌트 제어를 위해 필수
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Mental Status")]
-    // [컨벤션] Private 필드는 _(언더스코어) 접두사 사용
     [SerializeField] private int _maxMental = 100;
     private int _currentMental;
 
     [Header("Invincibility")]
-    [SerializeField] private float _invincibilityDuration = 1.0f; // 피격 후 무적 시간
+    [SerializeField] private float _invincibilityDuration = 1.0f;
     private bool _isInvincible = false;
 
     [Header("Visual")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private float _flashInterval = 0.1f; // 깜빡임 속도
+    [SerializeField] private float _flashInterval = 0.1f;
 
     [Header("UI Reference")]
-    // [수정됨] Slider 대신 Image 컴포넌트를 사용 (Filled 타입 제어용)
     [SerializeField] private Image _mentalBarImage;
 
     private void Awake()
     {
-        // 안전성 강화: null 체크
         if (_spriteRenderer == null)
             _spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -33,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // Guard Clause: 무적 상태이거나 이미 죽었으면 로직 중단
         if (_isInvincible || _currentMental <= 0) return;
 
         _currentMental -= damage;
@@ -49,12 +45,24 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // [추가됨] 외부(PlayerMovement)에서 무적 상태를 강제로 설정하는 함수
+    public void SetInvincible(bool state)
+    {
+        _isInvincible = state;
+
+        // 무적 상태 시각적 피드백 (반투명 처리 등)
+        if (_spriteRenderer != null)
+        {
+            Color color = _spriteRenderer.color;
+            color.a = state ? 0.5f : 1f; // 무적이면 반투명, 아니면 불투명
+            _spriteRenderer.color = color;
+        }
+    }
+
     private void UpdateUI()
     {
         if (_mentalBarImage != null)
         {
-            // [수정됨] Slider.value 대신 Image.fillAmount 사용
-            // 0.0 ~ 1.0 사이의 비율로 이미지를 채우거나 깎음
             _mentalBarImage.fillAmount = (float)_currentMental / _maxMental;
         }
     }
@@ -62,38 +70,24 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Game Over! (멘탈 붕괴)");
-        // TODO: 게임 오버 팝업 띄우기 등의 로직 추가
-
-        // 플레이어 오브젝트 비활성화
         gameObject.SetActive(false);
     }
 
-    // 무적 코루틴 (깜빡임 효과)
     private IEnumerator InvincibilityRoutine()
     {
         _isInvincible = true;
-        // Debug.Log("무적 상태 돌입!");
 
         float elapsed = 0f;
         while (elapsed < _invincibilityDuration)
         {
-            // 렌더러가 존재할 때만 깜빡임 처리
             if (_spriteRenderer != null)
-            {
                 _spriteRenderer.enabled = !_spriteRenderer.enabled;
-            }
 
             yield return new WaitForSeconds(_flashInterval);
             elapsed += _flashInterval;
         }
 
-        // 루프 종료 후 확실하게 보이도록 복구
-        if (_spriteRenderer != null)
-        {
-            _spriteRenderer.enabled = true;
-        }
-
+        if (_spriteRenderer != null) _spriteRenderer.enabled = true;
         _isInvincible = false;
-        // Debug.Log("무적 해제");
     }
 }

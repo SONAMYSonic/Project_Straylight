@@ -36,7 +36,7 @@ public class PlayerInput : MonoBehaviour
             MousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         // 3. 액션 키 입력
-        IsDashTriggered = Input.GetKeyDown(KeyCode.RightShift);
+        IsDashTriggered = Input.GetKeyDown(KeyCode.LeftShift);
         IsAttackHeld = Input.GetMouseButton(0);     // 꾹 누르고 있음
         IsAttackTap = Input.GetMouseButtonDown(0);  // 딸깍 클릭함
         IsUltTriggered = Input.GetKeyDown(KeyCode.Space);
