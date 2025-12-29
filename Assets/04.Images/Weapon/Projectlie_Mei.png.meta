@@ -1,0 +1,387 @@
+fileFormatVersion: 2
+guid: 66939273517063c4686b135aa7d1869b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7679961444079431288
+    second: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88113fcb1cb4b6590800000000000000
+      internalID: -7679961444079431288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1ed4027c7005042bac093ae8e1a381
+      internalID: -1818051334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14abf4cf0a7913543936ed7fef6d5e40
+      internalID: 765176108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7245d42e9ce826746a9c4093e0fe27d9
+      internalID: 297426610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d78b6012f590d741bb4bb274381fb4d
+      internalID: 276542109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_7
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d559bbfa468bc9458e3b205ae9c5244
+      internalID: -1678761948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_16
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd061e055fd21b4b9b70fc6b64d93cf
+      internalID: -1821975570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_17
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a4a7885e5f93345a1700c4f5e868a6
+      internalID: -509635635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_19
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf4b9aaa7700a644b432e9f13355f95
+      internalID: 87188841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_20
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77bafde7b1d869d4298754f3537b4b6b
+      internalID: -895015185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eeaf91c03026416438890e6a0ff28610
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_0: -7679961444079431288
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_1: -1818051334
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_10: 955426286
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_11: 572650628
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_12: -1507969976
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_13: -1407808629
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_14: -629977551
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_15: 1849570684
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_16: -1821975570
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_17: -509635635
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_18: 1848634237
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_19: 87188841
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_2: 765176108
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_20: -895015185
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_3: 297426610
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_4: -1776651797
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_5: 276542109
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_6: 875992699
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_7: -1678761948
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_8: -1062105318
+      Neo Geo _ NGCD - The King of Fighters 2002 - Fighters - Iori_9: -615802935
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
