@@ -135,11 +135,17 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         if (_currentStat.FiresProjectile)
         {
             Vector3 spawnPos = _firePoint != null ? _firePoint.position : transform.position;
-            GameObject bulletObj = ObjectPooler.Instance.SpawnFromPool(_projectileTag, spawnPos, transform.rotation);
+            
+            // 마우스 방향 계산
+            Vector2 mouseWorldPos = _input.MousePos;
+            Vector2 direction = (mouseWorldPos - (Vector2)spawnPos).normalized;
+            
+            GameObject bulletObj = ObjectPooler.Instance.SpawnFromPool(_projectileTag, spawnPos, Quaternion.identity);
 
             if (bulletObj != null && bulletObj.TryGetComponent(out Bullet bulletScript))
             {
                 bulletScript.SetBulletStats(_currentStat.Damage, _currentMode);
+                bulletScript.SetDirection(direction);
             }
         }
 

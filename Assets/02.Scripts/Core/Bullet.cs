@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     // 외부에서 주입받을 데이터
     private int _damage;
     private IdolMode _bulletMode;
+    private Vector2 _direction;
 
     private void OnEnable()
     {
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // 이동 로직
-        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
     }
 
     // [핵심] PlayerCombat에서 총알을 만들자마자 이 함수를 호출해 줘야 함
@@ -33,6 +34,11 @@ public class Bullet : MonoBehaviour
     {
         _damage = damage;
         _bulletMode = mode;
+    }
+
+    public void SetDirection(Vector2 direction)
+    {
+        _direction = direction.normalized;
     }
 
     private void DisableBullet()

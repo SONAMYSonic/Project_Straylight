@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4364960538666454901}
   - component: {fileID: 2931573074391381968}
   - component: {fileID: 7879963361212692586}
+  - component: {fileID: 4519016062704867380}
   m_Layer: 0
   m_Name: Bullet_Basic
   m_TagString: PlayerBullet
@@ -139,3 +140,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.0036059022, y: 0.36602134}
   m_Radius: 0.37198287
+--- !u!95 &4519016062704867380
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8941759778856016237}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b1e2e59c808f0b4ea580a20b492fa7d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
