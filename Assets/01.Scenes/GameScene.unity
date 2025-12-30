@@ -7011,6 +7011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerModeUI: {fileID: 251287943}
+  _damageShakeIntensity: 2
 --- !u!61 &454179943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7815,7 +7816,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 50, y: 50}
+  m_Size: {x: 54, y: 52}
   m_EdgeRadius: 0
 --- !u!1 &1125139900
 GameObject:
