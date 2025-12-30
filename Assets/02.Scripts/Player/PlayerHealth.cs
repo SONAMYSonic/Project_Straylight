@@ -35,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
         _currentMental -= damage;
         UpdateUI();
 
+        CameraShakeManager.Instance.ShakeCamera(2.0f);
+
         if (_currentMental <= 0)
         {
             Die();
