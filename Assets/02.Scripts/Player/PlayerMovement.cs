@@ -13,13 +13,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashCooldown = 1f;
 
     [Header("Ghost Trail")]
-    [SerializeField] private string ghostTag = "PlayerGhost"; // 풀링 태그
-    [SerializeField] private float ghostSpawnInterval = 0.05f; // 잔상 생성 간격
+    [SerializeField] private string ghostTag = "PlayerGhost";
+    [SerializeField] private float ghostSpawnInterval = 0.05f;
 
     private Rigidbody2D rb;
     private PlayerInput input;
     private PlayerHealth playerHealth;
-    private SpriteRenderer spriteRenderer; // [추가] 현재 스프라이트 가져오기용
+    private SpriteRenderer spriteRenderer;
+    private PlayerAudio _playerAudio; // [추가] 오디오 참조
 
     private bool isDashing = false;
     private float lastDashTime = -10f;
@@ -32,9 +33,11 @@ public class PlayerMovement : MonoBehaviour
         input = inputRef;
         playerHealth = GetComponent<PlayerHealth>();
 
-        // [추가] 플레이어의 SpriteRenderer 찾기 (없으면 자식에서라도 찾음)
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        // [추가] 오디오 컴포넌트 가져오기
+        _playerAudio = GetComponent<PlayerAudio>();
     }
 
     public void HandleMovement()
@@ -45,13 +48,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (input.MousePos != Vector2.zero)
         {
-            // 회전값 0으로 고정하여 스프라이트가 기울어지지 않도록 함
             rb.rotation = 0f;
         }
     }
 
     public void HandleDash()
     {
+        // 쿨타임과 상태 체크 후 통과되면 코루틴 실행
         if (input.IsDashTriggered && !isDashing && Time.time >= lastDashTime + dashCooldown)
         {
             StartCoroutine(DashRoutine());
@@ -63,7 +66,9 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         lastDashTime = Time.time;
 
-        // 방향 계산
+        // [추가] 실제 대쉬가 시작될 때 소리 재생 (쿨타임 걸리면 여기 못 들어옴)
+        _playerAudio?.PlayDashVoice();
+
         Vector2 dashDir;
         if (input.MoveDir != Vector2.zero) dashDir = input.MoveDir.normalized;
         else dashDir = (input.MousePos - rb.position).normalized;
@@ -71,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         if (playerHealth != null) playerHealth.SetInvincible(true);
         rb.linearVelocity = dashDir * dashSpeed;
 
-        // [추가] 잔상 생성 코루틴 시작 (병렬 실행)
         StartCoroutine(SpawnGhostRoutine());
 
         Debug.Log("Dash Start!");
@@ -85,15 +89,12 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Dash End");
     }
 
-    // [추가] 대쉬하는 동안 잔상을 찍어내는 코루틴
     private IEnumerator SpawnGhostRoutine()
     {
-        while (isDashing) // 대쉬가 끝날 때까지 반복
+        while (isDashing)
         {
-            // 1. 오브젝트 풀에서 잔상 가져오기
             GameObject ghostObj = ObjectPooler.Instance.SpawnFromPool(ghostTag, transform.position, transform.rotation);
 
-            // 2. 현재 플레이어의 스프라이트 정보를 잔상에 전달
             if (ghostObj != null && spriteRenderer != null)
             {
                 PlayerGhost ghostScript = ghostObj.GetComponent<PlayerGhost>();
@@ -102,8 +103,6 @@ public class PlayerMovement : MonoBehaviour
                     ghostScript.SetGhost(spriteRenderer.sprite, spriteRenderer.flipX, transform.localScale);
                 }
             }
-
-            // 3. 간격만큼 대기
             yield return new WaitForSeconds(ghostSpawnInterval);
         }
     }

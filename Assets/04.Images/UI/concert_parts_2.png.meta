@@ -1,0 +1,3199 @@
+fileFormatVersion: 2
+guid: aac783feb82c51e4d8025014b9b0e23c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8310917600150927062
+    second: concert_parts_2_0
+  - first:
+      213: 7319306025276738475
+    second: concert_parts_2_1
+  - first:
+      213: 7217932359052295737
+    second: concert_parts_2_2
+  - first:
+      213: -8111904671421617359
+    second: concert_parts_2_3
+  - first:
+      213: 4586916003654169904
+    second: concert_parts_2_4
+  - first:
+      213: -2374980383061962662
+    second: concert_parts_2_5
+  - first:
+      213: -5280520505582507477
+    second: concert_parts_2_6
+  - first:
+      213: -4047356794833747546
+    second: concert_parts_2_7
+  - first:
+      213: 8018584598677675476
+    second: concert_parts_2_8
+  - first:
+      213: 8067555796092021414
+    second: concert_parts_2_9
+  - first:
+      213: 3728583356555538555
+    second: concert_parts_2_10
+  - first:
+      213: -7269391584752425834
+    second: concert_parts_2_11
+  - first:
+      213: 2955258893650804832
+    second: concert_parts_2_12
+  - first:
+      213: 1958666624217519065
+    second: concert_parts_2_13
+  - first:
+      213: -5472316188468401432
+    second: concert_parts_2_14
+  - first:
+      213: 8153497862296040716
+    second: concert_parts_2_15
+  - first:
+      213: -9093214901749825870
+    second: concert_parts_2_16
+  - first:
+      213: 5118755111626266249
+    second: concert_parts_2_17
+  - first:
+      213: -2758794019318385925
+    second: concert_parts_2_18
+  - first:
+      213: 9022930784964014953
+    second: concert_parts_2_19
+  - first:
+      213: -2205673670691914126
+    second: concert_parts_2_20
+  - first:
+      213: 7182831097659830802
+    second: concert_parts_2_21
+  - first:
+      213: -29212489953565505
+    second: concert_parts_2_22
+  - first:
+      213: 6205814895790213747
+    second: concert_parts_2_23
+  - first:
+      213: -1487534137689167546
+    second: concert_parts_2_24
+  - first:
+      213: 3362535056889859715
+    second: concert_parts_2_25
+  - first:
+      213: 1853774015959989541
+    second: concert_parts_2_26
+  - first:
+      213: 4164096638181632121
+    second: concert_parts_2_27
+  - first:
+      213: 97154089942307533
+    second: concert_parts_2_28
+  - first:
+      213: 8572880939819545561
+    second: concert_parts_2_29
+  - first:
+      213: 6895771353852009956
+    second: concert_parts_2_30
+  - first:
+      213: -9074198970716587209
+    second: concert_parts_2_31
+  - first:
+      213: -1777078402722682583
+    second: concert_parts_2_32
+  - first:
+      213: 963218396657622265
+    second: concert_parts_2_33
+  - first:
+      213: 442348177226563974
+    second: concert_parts_2_34
+  - first:
+      213: 4775911906698844537
+    second: concert_parts_2_35
+  - first:
+      213: 1571528169420464351
+    second: concert_parts_2_36
+  - first:
+      213: -3288780673973747967
+    second: concert_parts_2_37
+  - first:
+      213: 202937216485054896
+    second: concert_parts_2_38
+  - first:
+      213: -7380564909820381347
+    second: concert_parts_2_39
+  - first:
+      213: 7983994895592042462
+    second: concert_parts_2_40
+  - first:
+      213: 7700754653963939352
+    second: concert_parts_2_41
+  - first:
+      213: 8692772713874198742
+    second: concert_parts_2_42
+  - first:
+      213: 4572812858851923452
+    second: concert_parts_2_43
+  - first:
+      213: -8121239553663229317
+    second: concert_parts_2_44
+  - first:
+      213: -2805031200782716434
+    second: concert_parts_2_45
+  - first:
+      213: 7656419185139815104
+    second: concert_parts_2_46
+  - first:
+      213: 746860874807481175
+    second: concert_parts_2_47
+  - first:
+      213: -8925809330392890030
+    second: concert_parts_2_48
+  - first:
+      213: 4927828489104010077
+    second: concert_parts_2_49
+  - first:
+      213: -8838505846779057054
+    second: concert_parts_2_50
+  - first:
+      213: -6002493731684968484
+    second: concert_parts_2_51
+  - first:
+      213: -5756630475759821905
+    second: concert_parts_2_52
+  - first:
+      213: 6098794629133235828
+    second: concert_parts_2_53
+  - first:
+      213: -3187712356521654061
+    second: concert_parts_2_54
+  - first:
+      213: 8742122240295687843
+    second: concert_parts_2_55
+  - first:
+      213: 200290484913651350
+    second: concert_parts_2_56
+  - first:
+      213: 5725380589723065429
+    second: concert_parts_2_57
+  - first:
+      213: -441379378407678140
+    second: concert_parts_2_58
+  - first:
+      213: -437593428047824148
+    second: concert_parts_2_59
+  - first:
+      213: 8547298780013284706
+    second: concert_parts_2_60
+  - first:
+      213: 2145818488961938533
+    second: concert_parts_2_61
+  - first:
+      213: -5902847019161652473
+    second: concert_parts_2_62
+  - first:
+      213: -4451023336612149357
+    second: concert_parts_2_63
+  - first:
+      213: -5740207918673219217
+    second: concert_parts_2_64
+  - first:
+      213: 8335057611290767566
+    second: concert_parts_2_65
+  - first:
+      213: 7359917702941345652
+    second: concert_parts_2_66
+  - first:
+      213: 3654984556428031862
+    second: concert_parts_2_67
+  - first:
+      213: -4833587690419336880
+    second: concert_parts_2_68
+  - first:
+      213: -6498824618877085659
+    second: concert_parts_2_69
+  - first:
+      213: -5588556423959021929
+    second: concert_parts_2_70
+  - first:
+      213: -5388229154731916577
+    second: concert_parts_2_71
+  - first:
+      213: 4473974302007411096
+    second: concert_parts_2_72
+  - first:
+      213: -4834752665598925557
+    second: concert_parts_2_73
+  - first:
+      213: 8904676093245990361
+    second: concert_parts_2_74
+  - first:
+      213: -2243966177764564854
+    second: concert_parts_2_75
+  - first:
+      213: 6485573324668468432
+    second: concert_parts_2_76
+  - first:
+      213: -9221706563674798903
+    second: concert_parts_2_77
+  - first:
+      213: -8587768870768554121
+    second: concert_parts_2_78
+  - first:
+      213: -2916606534946152908
+    second: concert_parts_2_79
+  - first:
+      213: -994175642999988158
+    second: concert_parts_2_80
+  - first:
+      213: -6649697917805593270
+    second: concert_parts_2_81
+  - first:
+      213: -7963084041899757213
+    second: concert_parts_2_82
+  - first:
+      213: -7443594883893024955
+    second: concert_parts_2_83
+  - first:
+      213: 5843384098998960738
+    second: concert_parts_2_84
+  - first:
+      213: 3180323162183086715
+    second: concert_parts_2_85
+  - first:
+      213: -8510179307864780586
+    second: concert_parts_2_86
+  - first:
+      213: 5208128643909691798
+    second: concert_parts_2_87
+  - first:
+      213: 7556732685619039610
+    second: concert_parts_2_88
+  - first:
+      213: -4961396075912323284
+    second: concert_parts_2_89
+  - first:
+      213: -4613824668205223866
+    second: concert_parts_2_90
+  - first:
+      213: -8078421879720205653
+    second: concert_parts_2_91
+  - first:
+      213: 1329724722674858423
+    second: concert_parts_2_92
+  - first:
+      213: -6276163271656084445
+    second: concert_parts_2_93
+  - first:
+      213: 2257561181335291409
+    second: concert_parts_2_94
+  - first:
+      213: -5307628795667444530
+    second: concert_parts_2_95
+  - first:
+      213: -7649594639841605909
+    second: concert_parts_2_96
+  - first:
+      213: -275989459128488275
+    second: concert_parts_2_97
+  - first:
+      213: 5169087151968278816
+    second: concert_parts_2_98
+  - first:
+      213: -199238071382444523
+    second: concert_parts_2_99
+  - first:
+      213: 6158209678092392286
+    second: concert_parts_2_100
+  - first:
+      213: 915769541840961346
+    second: concert_parts_2_101
+  - first:
+      213: 4527910435927298749
+    second: concert_parts_2_102
+  - first:
+      213: -7612790287486639300
+    second: concert_parts_2_103
+  - first:
+      213: 8838488986072174033
+    second: concert_parts_2_104
+  - first:
+      213: -8902727829236540442
+    second: concert_parts_2_105
+  - first:
+      213: 3469705185375732701
+    second: concert_parts_2_106
+  - first:
+      213: 1174114877738037985
+    second: concert_parts_2_107
+  - first:
+      213: 4809568175911481769
+    second: concert_parts_2_108
+  - first:
+      213: -8235080681173916857
+    second: concert_parts_2_109
+  - first:
+      213: -3337132633478921297
+    second: concert_parts_2_110
+  - first:
+      213: -3250223613959486712
+    second: concert_parts_2_111
+  - first:
+      213: 153962163572895024
+    second: concert_parts_2_112
+  - first:
+      213: -211848151039018287
+    second: concert_parts_2_113
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: concert_parts_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1366
+        width: 506
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6b982368f465370800000000000000
+      internalID: 8310917600150927062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1366
+        width: 753
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab0ff6fc06639560800000000000000
+      internalID: 7319306025276738475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_2
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 1878
+        width: 1138
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93efb120d3f3b2460800000000000000
+      internalID: 7217932359052295737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_3
+      rect:
+        serializedVersion: 2
+        x: 1901
+        y: 1902
+        width: 105
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b25181ea9bc6f80800000000000000
+      internalID: -8111904671421617359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_4
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 1234
+        width: 318
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0357c548dcff7af30800000000000000
+      internalID: 4586916003654169904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_5
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 1234
+        width: 318
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50121fbcef5a0fd0800000000000000
+      internalID: -2374980383061962662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_6
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 1234
+        width: 255
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2aa69bd392d7b6b0800000000000000
+      internalID: -5280520505582507477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_7
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 1234
+        width: 255
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1cbac5076e4d7c0800000000000000
+      internalID: -4047356794833747546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_8
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1773
+        width: 77
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ddd99d453cb74f60800000000000000
+      internalID: 8018584598677675476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_9
+      rect:
+        serializedVersion: 2
+        x: 1997
+        y: 1797
+        width: 10
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa65b7b047b5ff60800000000000000
+      internalID: 8067555796092021414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_10
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1684
+        width: 86
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b703de2dec69eb330800000000000000
+      internalID: 3728583356555538555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_11
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1595
+        width: 86
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6942e995edeed1b90800000000000000
+      internalID: -7269391584752425834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_12
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1515
+        width: 80
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060ce5f5e40330920800000000000000
+      internalID: 2955258893650804832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_13
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1441
+        width: 71
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d316e1dae49e2b10800000000000000
+      internalID: 1958666624217519065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_14
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1373
+        width: 73
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eaa8bf8b6d6e04b0800000000000000
+      internalID: -5472316188468401432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 722
+        width: 510
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05ff0f4b1b072170800000000000000
+      internalID: 8153497862296040716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_16
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 722
+        width: 753
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2beb9ea89396ec180800000000000000
+      internalID: -9093214901749825870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_17
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1305
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 986d2b857a8790740800000000000000
+      internalID: 5118755111626266249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_18
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1237
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf23e06c47bc6b9d0800000000000000
+      internalID: -2758794019318385925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_19
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1057
+        width: 636
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96377be4eb3e73d70800000000000000
+      internalID: 9022930784964014953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_20
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 1064
+        width: 601
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ef9ff8b7fd361e0800000000000000
+      internalID: -2205673670691914126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_21
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 880
+        width: 636
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 212b4a9b3da8ea360800000000000000
+      internalID: 7182831097659830802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_22
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 804
+        width: 258
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb420592567389ff0800000000000000
+      internalID: -29212489953565505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_23
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 808
+        width: 256
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a476594cb7f1650800000000000000
+      internalID: 6205814895790213747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_24
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 824
+        width: 62
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64925c345973b5be0800000000000000
+      internalID: -1487534137689167546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_25
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 1032
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ec7ba91df1aae20800000000000000
+      internalID: 3362535056889859715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_26
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 1001
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52df42355ade9b910800000000000000
+      internalID: 1853774015959989541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_27
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 741
+        width: 636
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978e63184d7d9c930800000000000000
+      internalID: 4164096638181632121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_28
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 751
+        width: 312
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2dc7b4129295100800000000000000
+      internalID: 97154089942307533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_29
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 703
+        width: 215
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d339af2bcdf8f670800000000000000
+      internalID: 8572880939819545561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_30
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 695
+        width: 69
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4edd9aec283b2bf50800000000000000
+      internalID: 6895771353852009956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 338
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73bf8310d18f11280800000000000000
+      internalID: -9074198970716587209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_32
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 78
+        width: 338
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92922bbab9c8657e0800000000000000
+      internalID: -1777078402722682583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_33
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 648
+        width: 71
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc16e5470a0e5d00800000000000000
+      internalID: 963218396657622265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_34
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 647
+        width: 639
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68181a2d259832600800000000000000
+      internalID: 442348177226563974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_35
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 711
+        width: 315
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979d7554392774240800000000000000
+      internalID: 4775911906698844537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_36
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 673
+        width: 313
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd0a3d43b803fc510800000000000000
+      internalID: 1571528169420464351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_37
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 652
+        width: 187
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10fff97d667eb52d0800000000000000
+      internalID: -3288780673973747967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_38
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 661
+        width: 91
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b95c4cb25af0d200800000000000000
+      internalID: 202937216485054896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_39
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 491
+        width: 293
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5771748157f29990800000000000000
+      internalID: -7380564909820381347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_40
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 491
+        width: 293
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edfab487e09dcce60800000000000000
+      internalID: 7983994895592042462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_41
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 507
+        width: 117
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ee4f3be839eda60800000000000000
+      internalID: 7700754653963939352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_42
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 635
+        width: 313
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d01eab1abee2a870800000000000000
+      internalID: 8692772713874198742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_43
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 520
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5153c3115e57f30800000000000000
+      internalID: 4572812858851923452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_44
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 546
+        width: 99
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b722d0477af8b4f80800000000000000
+      internalID: -8121239553663229317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_45
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 530
+        width: 214
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1757d0cf68219d0800000000000000
+      internalID: -2805031200782716434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_46
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 475
+        width: 136
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c29eb5fea0114a60800000000000000
+      internalID: 7656419185139815104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_47
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 526
+        width: 102
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 753998332026d5a00800000000000000
+      internalID: 746860874807481175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_48
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 388
+        width: 117
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255801974b7212480800000000000000
+      internalID: -8925809330392890030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_49
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 423
+        width: 214
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5b281fe6e9236440800000000000000
+      internalID: 4927828489104010077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_50
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 486
+        width: 131
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c6581c2c1575580800000000000000
+      internalID: -8838505846779057054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_51
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 491
+        width: 120
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7986ce0cbd2bca0800000000000000
+      internalID: -6002493731684968484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_52
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 335
+        width: 293
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fabd52d05175c10b0800000000000000
+      internalID: -5756630475759821905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_53
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 371
+        width: 257
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476fb83076543a450800000000000000
+      internalID: 6098794629133235828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_54
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 463
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8476f3088f2c3d0800000000000000
+      internalID: -3187712356521654061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_55
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 379
+        width: 205
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6dddb1cd1425970800000000000000
+      internalID: 8742122240295687843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_56
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 457
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e3b25822397c200800000000000000
+      internalID: 200290484913651350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_57
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 374
+        width: 109
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c1c5edf43a47f40800000000000000
+      internalID: 5725380589723065429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_58
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 437
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fd3da3bc7efd9f0800000000000000
+      internalID: -441379378407678140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_59
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 459
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceaf92d781b5de9f0800000000000000
+      internalID: -437593428047824148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_60
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 431
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d42d374fa1e9670800000000000000
+      internalID: 8547298780013284706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_61
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 389
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564ba03fb8a77cd10800000000000000
+      internalID: 2145818488961938533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_62
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 325
+        width: 204
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703756329efd41ea0800000000000000
+      internalID: -5902847019161652473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_63
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 402
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 397424e9bd9ca32c0800000000000000
+      internalID: -4451023336612149357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_64
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 333
+        width: 313
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6139969f4fa650b0800000000000000
+      internalID: -5740207918673219217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_65
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 343
+        width: 87
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0f6678cb21ca370800000000000000
+      internalID: 8335057611290767566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_66
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 283
+        width: 204
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4778de3082ea32660800000000000000
+      internalID: 7359917702941345652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_67
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 360
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6777e61d61d19b230800000000000000
+      internalID: 3654984556428031862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_68
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 262
+        width: 109
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059cad1ea95abecb0800000000000000
+      internalID: -4833587690419336880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_69
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 141
+        width: 249
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 528944ef0798fc5a0800000000000000
+      internalID: -6498824618877085659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_70
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 258
+        width: 257
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796f1b6ba857172b0800000000000000
+      internalID: -5588556423959021929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_71
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 221
+        width: 109
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd20dcfb12a2935b0800000000000000
+      internalID: -5388229154731916577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_72
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 323
+        width: 57
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891c06d6cefb61e30800000000000000
+      internalID: 4473974302007411096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_73
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 227
+        width: 204
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b056a16f01287ecb0800000000000000
+      internalID: -4834752665598925557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_74
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 304
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d527d15ab3c39b70800000000000000
+      internalID: 8904676093245990361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_75
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 243
+        width: 77
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a802a5e76a4dbd0e0800000000000000
+      internalID: -2243966177764564854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_76
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 247
+        width: 154
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcfc95a392610a50800000000000000
+      internalID: 6485573324668468432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_77
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 261
+        width: 57
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c486413dbae50080800000000000000
+      internalID: -9221706563674798903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_78
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 153
+        width: 214
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77fcea446bd12d880800000000000000
+      internalID: -8587768870768554121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_79
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 223
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e93fe2fc12687d0800000000000000
+      internalID: -2916606534946152908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_80
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 213
+        width: 153
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240e3a2258af332f0800000000000000
+      internalID: -994175642999988158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_81
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 213
+        width: 91
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4dfa81b9f687b3a0800000000000000
+      internalID: -6649697917805593270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_82
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 228
+        width: 81
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361bbfd01417d7190800000000000000
+      internalID: -7963084041899757213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_83
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 193
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54724a514e903b890800000000000000
+      internalID: -7443594883893024955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_84
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 81
+        width: 117
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 262cff2e0eed71150800000000000000
+      internalID: 5843384098998960738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_85
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 143
+        width: 200
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72bed0e017c22c20800000000000000
+      internalID: 3180323162183086715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_86
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 179
+        width: 153
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d017d32205c5e980800000000000000
+      internalID: -8510179307864780586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_87
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 179
+        width: 131
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69926c4686df64840800000000000000
+      internalID: 5208128643909691798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_88
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 130
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d08ec1758eed860800000000000000
+      internalID: 7556732685619039610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_89
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 76
+        width: 264
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f9a393e84952bb0800000000000000
+      internalID: -4961396075912323284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_90
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 115
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64071bbc8e668ffb0800000000000000
+      internalID: -4613824668205223866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_91
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 60
+        width: 225
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2a8890a1ea3ef80800000000000000
+      internalID: -8078421879720205653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_92
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 42
+        width: 140
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9f6101791247210800000000000000
+      internalID: 1329724722674858423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_93
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 3
+        width: 117
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ce598c1c696e8a0800000000000000
+      internalID: -6276163271656084445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_94
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 75
+        width: 101
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1168330fee7745f10800000000000000
+      internalID: 2257561181335291409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_95
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 75
+        width: 101
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc8b9a3bb38756b0800000000000000
+      internalID: -5307628795667444530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_96
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 75
+        width: 93
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be64280543e27d590800000000000000
+      internalID: -7649594639841605909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_97
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 36
+        width: 91
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daee4e69c0d7b2cf0800000000000000
+      internalID: -275989459128488275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 251
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029da12b0694cb740800000000000000
+      internalID: 5169087151968278816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_99
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 251
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516f389970a2c3df0800000000000000
+      internalID: -199238071382444523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_100
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 4
+        width: 149
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57d11b131b567550800000000000000
+      internalID: 6158209678092392286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_101
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 73
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f7d8ddb8775bc00800000000000000
+      internalID: 915769541840961346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_102
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 73
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db21b343d8e56de30800000000000000
+      internalID: 4527910435927298749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_103
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 34
+        width: 125
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c33a0dc519fe95690800000000000000
+      internalID: -7612790287486639300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_104
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 61
+        width: 101
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ddc80e87ee98aa70800000000000000
+      internalID: 8838488986072174033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_105
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 41
+        width: 150
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eb1f5e3538237480800000000000000
+      internalID: -8902727829236540442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_106
+      rect:
+        serializedVersion: 2
+        x: 1717
+        y: 41
+        width: 135
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd3c6a99b7ed62030800000000000000
+      internalID: 3469705185375732701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_107
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 154
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2b315b24b4b4010800000000000000
+      internalID: 1174114877738037985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_108
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 26
+        width: 153
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a13a3816c40fb240800000000000000
+      internalID: 4809568175911481769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_109
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 26
+        width: 81
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74362f570cd17bd80800000000000000
+      internalID: -8235080681173916857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_110
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 32
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3002dfc8f10b1d0800000000000000
+      internalID: -3337132633478921297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_111
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 7
+        width: 135
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803cb51f7d2e4e2d0800000000000000
+      internalID: -3250223613959486712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_112
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 6
+        width: 120
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03dec94a5cbf22200800000000000000
+      internalID: 153962163572895024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_113
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 12
+        width: 130
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dafef2aa3d5f0df0800000000000000
+      internalID: -211848151039018287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_114
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 2
+        width: 129
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec438a93c63d14e4b910195647302982
+      internalID: -696811583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_115
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 6
+        width: 57
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf749b487935594e82e50b184e91237
+      internalID: 822248734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_116
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 0
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3adffaced86c6b34d8d12be9034ec501
+      internalID: 502577843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concert_parts_2_117
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 4
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9c2924e51e58b48a404eb42984e799
+      internalID: -296370112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3c0a4f750efff7843813d4ed5edb6efa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      concert_parts_2_0: 8310917600150927062
+      concert_parts_2_1: 7319306025276738475
+      concert_parts_2_10: 3728583356555538555
+      concert_parts_2_100: 6158209678092392286
+      concert_parts_2_101: 915769541840961346
+      concert_parts_2_102: 4527910435927298749
+      concert_parts_2_103: -7612790287486639300
+      concert_parts_2_104: 8838488986072174033
+      concert_parts_2_105: -8902727829236540442
+      concert_parts_2_106: 3469705185375732701
+      concert_parts_2_107: 1174114877738037985
+      concert_parts_2_108: 4809568175911481769
+      concert_parts_2_109: -8235080681173916857
+      concert_parts_2_11: -7269391584752425834
+      concert_parts_2_110: -3337132633478921297
+      concert_parts_2_111: -3250223613959486712
+      concert_parts_2_112: 153962163572895024
+      concert_parts_2_113: -211848151039018287
+      concert_parts_2_114: -696811583
+      concert_parts_2_115: 822248734
+      concert_parts_2_116: 502577843
+      concert_parts_2_117: -296370112
+      concert_parts_2_12: 2955258893650804832
+      concert_parts_2_13: 1958666624217519065
+      concert_parts_2_14: -5472316188468401432
+      concert_parts_2_15: 8153497862296040716
+      concert_parts_2_16: -9093214901749825870
+      concert_parts_2_17: 5118755111626266249
+      concert_parts_2_18: -2758794019318385925
+      concert_parts_2_19: 9022930784964014953
+      concert_parts_2_2: 7217932359052295737
+      concert_parts_2_20: -2205673670691914126
+      concert_parts_2_21: 7182831097659830802
+      concert_parts_2_22: -29212489953565505
+      concert_parts_2_23: 6205814895790213747
+      concert_parts_2_24: -1487534137689167546
+      concert_parts_2_25: 3362535056889859715
+      concert_parts_2_26: 1853774015959989541
+      concert_parts_2_27: 4164096638181632121
+      concert_parts_2_28: 97154089942307533
+      concert_parts_2_29: 8572880939819545561
+      concert_parts_2_3: -8111904671421617359
+      concert_parts_2_30: 6895771353852009956
+      concert_parts_2_31: -9074198970716587209
+      concert_parts_2_32: -1777078402722682583
+      concert_parts_2_33: 963218396657622265
+      concert_parts_2_34: 442348177226563974
+      concert_parts_2_35: 4775911906698844537
+      concert_parts_2_36: 1571528169420464351
+      concert_parts_2_37: -3288780673973747967
+      concert_parts_2_38: 202937216485054896
+      concert_parts_2_39: -7380564909820381347
+      concert_parts_2_4: 4586916003654169904
+      concert_parts_2_40: 7983994895592042462
+      concert_parts_2_41: 7700754653963939352
+      concert_parts_2_42: 8692772713874198742
+      concert_parts_2_43: 4572812858851923452
+      concert_parts_2_44: -8121239553663229317
+      concert_parts_2_45: -2805031200782716434
+      concert_parts_2_46: 7656419185139815104
+      concert_parts_2_47: 746860874807481175
+      concert_parts_2_48: -8925809330392890030
+      concert_parts_2_49: 4927828489104010077
+      concert_parts_2_5: -2374980383061962662
+      concert_parts_2_50: -8838505846779057054
+      concert_parts_2_51: -6002493731684968484
+      concert_parts_2_52: -5756630475759821905
+      concert_parts_2_53: 6098794629133235828
+      concert_parts_2_54: -3187712356521654061
+      concert_parts_2_55: 8742122240295687843
+      concert_parts_2_56: 200290484913651350
+      concert_parts_2_57: 5725380589723065429
+      concert_parts_2_58: -441379378407678140
+      concert_parts_2_59: -437593428047824148
+      concert_parts_2_6: -5280520505582507477
+      concert_parts_2_60: 8547298780013284706
+      concert_parts_2_61: 2145818488961938533
+      concert_parts_2_62: -5902847019161652473
+      concert_parts_2_63: -4451023336612149357
+      concert_parts_2_64: -5740207918673219217
+      concert_parts_2_65: 8335057611290767566
+      concert_parts_2_66: 7359917702941345652
+      concert_parts_2_67: 3654984556428031862
+      concert_parts_2_68: -4833587690419336880
+      concert_parts_2_69: -6498824618877085659
+      concert_parts_2_7: -4047356794833747546
+      concert_parts_2_70: -5588556423959021929
+      concert_parts_2_71: -5388229154731916577
+      concert_parts_2_72: 4473974302007411096
+      concert_parts_2_73: -4834752665598925557
+      concert_parts_2_74: 8904676093245990361
+      concert_parts_2_75: -2243966177764564854
+      concert_parts_2_76: 6485573324668468432
+      concert_parts_2_77: -9221706563674798903
+      concert_parts_2_78: -8587768870768554121
+      concert_parts_2_79: -2916606534946152908
+      concert_parts_2_8: 8018584598677675476
+      concert_parts_2_80: -994175642999988158
+      concert_parts_2_81: -6649697917805593270
+      concert_parts_2_82: -7963084041899757213
+      concert_parts_2_83: -7443594883893024955
+      concert_parts_2_84: 5843384098998960738
+      concert_parts_2_85: 3180323162183086715
+      concert_parts_2_86: -8510179307864780586
+      concert_parts_2_87: 5208128643909691798
+      concert_parts_2_88: 7556732685619039610
+      concert_parts_2_89: -4961396075912323284
+      concert_parts_2_9: 8067555796092021414
+      concert_parts_2_90: -4613824668205223866
+      concert_parts_2_91: -8078421879720205653
+      concert_parts_2_92: 1329724722674858423
+      concert_parts_2_93: -6276163271656084445
+      concert_parts_2_94: 2257561181335291409
+      concert_parts_2_95: -5307628795667444530
+      concert_parts_2_96: -7649594639841605909
+      concert_parts_2_97: -275989459128488275
+      concert_parts_2_98: 5169087151968278816
+      concert_parts_2_99: -199238071382444523
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
