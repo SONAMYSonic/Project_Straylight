@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using IdolMasterFanGame.UI;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,10 +20,20 @@ public class UIManager : MonoBehaviour
     [Header("Game Over Panel")]
     [SerializeField] private GameObject _gameOverPanel;
 
+    [Header("Skill Cutscene")]
+    [SerializeField] private GameObject _cutscenePanel;
+    [SerializeField] private Image _cutsceneImage;
+
+    [Header("Boss Gimmick UI")]
+    [SerializeField] private GameObject _maintenancePanel;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        if (_cutscenePanel != null) _cutscenePanel.SetActive(false);
+        if (_maintenancePanel != null) _maintenancePanel.SetActive(false);
     }
 
     private void Start()
@@ -55,7 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateKillCount(int currentKill, int targetKill)
     {
-        if (_scoreText != null) _scoreText.text = $"Kill: {currentKill}";
+        if (_scoreText != null) _scoreText.text = $"Kill: {currentKill} / {targetKill}";
     }
 
     public void UpdateGameProgress(float progress, int state)
@@ -81,5 +92,36 @@ public class UIManager : MonoBehaviour
     private void HideBossWarning()
     {
         if (_bossWarningPanel != null) _bossWarningPanel.SetActive(false);
+    }
+
+    public void PlaySkillCutscene(Sprite skillSprite, float duration)
+    {
+        if (_cutscenePanel == null) return;
+        if (_cutsceneImage != null && skillSprite != null) _cutsceneImage.sprite = skillSprite;
+        StartCoroutine(CutsceneRoutine(duration));
+    }
+
+    private IEnumerator CutsceneRoutine(float duration)
+    {
+        _cutscenePanel.SetActive(true);
+        yield return new WaitForSecondsRealtime(duration);
+        _cutscenePanel.SetActive(false);
+    }
+
+    // [추가됨] 점검 공지 띄우기 (보스 패턴용)
+    public void ShowMaintenanceNotice(float duration)
+    {
+        if (_maintenancePanel != null)
+        {
+            StartCoroutine(MaintenanceRoutine(duration));
+        }
+    }
+
+    private IEnumerator MaintenanceRoutine(float duration)
+    {
+        _maintenancePanel.SetActive(true);
+        // 화면을 가린 채로 지정된 시간만큼 대기
+        yield return new WaitForSeconds(duration);
+        _maintenancePanel.SetActive(false);
     }
 }
