@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: 1ba535783628fe84ea956f2d73d7bf54
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2991708210874146175
+    second: shop_parts_currency_status_0
+  - first:
+      213: 4588184201097988525
+    second: shop_parts_currency_status_1
+  - first:
+      213: 2165855210995633631
+    second: shop_parts_currency_status_2
+  - first:
+      213: 965676503276814179
+    second: shop_parts_currency_status_3
+  - first:
+      213: 6926944827795131205
+    second: shop_parts_currency_status_4
+  - first:
+      213: 503787732738420001
+    second: shop_parts_currency_status_5
+  - first:
+      213: -8980550652315989026
+    second: shop_parts_currency_status_6
+  - first:
+      213: 2532630263186426246
+    second: shop_parts_currency_status_7
+  - first:
+      213: 5620665496401875306
+    second: shop_parts_currency_status_8
+  - first:
+      213: 5581082976845459479
+    second: shop_parts_currency_status_9
+  - first:
+      213: 5587605101461393211
+    second: shop_parts_currency_status_10
+  - first:
+      213: 8951596363903947550
+    second: shop_parts_currency_status_11
+  - first:
+      213: 4461436665210593735
+    second: shop_parts_currency_status_12
+  - first:
+      213: -8855053817336821846
+    second: shop_parts_currency_status_13
+  - first:
+      213: -2393301359412770769
+    second: shop_parts_currency_status_14
+  - first:
+      213: 5039501534901202342
+    second: shop_parts_currency_status_15
+  - first:
+      213: 5863879849028858384
+    second: shop_parts_currency_status_16
+  - first:
+      213: 7596570198809421373
+    second: shop_parts_currency_status_17
+  - first:
+      213: 242388236962591657
+    second: shop_parts_currency_status_18
+  - first:
+      213: 3616426946701303090
+    second: shop_parts_currency_status_19
+  - first:
+      213: -4039417841393994761
+    second: shop_parts_currency_status_20
+  - first:
+      213: -4127571146772369131
+    second: shop_parts_currency_status_21
+  - first:
+      213: -966621331136170085
+    second: shop_parts_currency_status_22
+  - first:
+      213: -1371342169183859094
+    second: shop_parts_currency_status_23
+  - first:
+      213: 9057877243500268035
+    second: shop_parts_currency_status_24
+  - first:
+      213: -629926014723184810
+    second: shop_parts_currency_status_25
+  - first:
+      213: -5565596569630742519
+    second: shop_parts_currency_status_26
+  - first:
+      213: 5658274444694420573
+    second: shop_parts_currency_status_27
+  - first:
+      213: 4182530172607109473
+    second: shop_parts_currency_status_28
+  - first:
+      213: 214738180916474543
+    second: shop_parts_currency_status_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shop_parts_currency_status_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 211
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dd5cc54cea48920800000000000000
+      internalID: 2991708210874146175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 291
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9418eb8318caf30800000000000000
+      internalID: 4588184201097988525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_2
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 292
+        width: 51
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fddc256d6d9ae0e10800000000000000
+      internalID: 2165855210995633631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 239
+        width: 211
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36f71c1d9a5c66d00800000000000000
+      internalID: 965676503276814179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_4
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 250
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b457fce93712060800000000000000
+      internalID: 6926944827795131205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 255
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12da2141640ddf600800000000000000
+      internalID: 503787732738420001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 211
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb8d4143ccae5380800000000000000
+      internalID: -8980550652315989026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_7
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 209
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68981a05ec5b52320800000000000000
+      internalID: 2532630263186426246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_8
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 214
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a61145a4d7d900e40800000000000000
+      internalID: 5620665496401875306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 230
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7107ad8c56df37d40800000000000000
+      internalID: 5581082976845459479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 147
+        width: 211
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f44c14c392b8d40800000000000000
+      internalID: 5587605101461393211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_11
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 169
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e135c2327757a3c70800000000000000
+      internalID: 8951596363903947550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_12
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 173
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1e7c162053aed30800000000000000
+      internalID: 4461436665210593735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 199
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa70cae18778c1580800000000000000
+      internalID: -8855053817336821846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_14
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 129
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f280eb7081949ced0800000000000000
+      internalID: -2393301359412770769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_15
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 134
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad62d012f7efe540800000000000000
+      internalID: 5039501534901202342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_16
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 134
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 012bfee87afa06150800000000000000
+      internalID: 5863879849028858384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 68
+        width: 167
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d36aa53f8507c6960800000000000000
+      internalID: 7596570198809421373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_18
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 91
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a373e931d22d5300800000000000000
+      internalID: 242388236962591657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_19
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 95
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d184ab521203230800000000000000
+      internalID: 3616426946701303090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_20
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 96
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3f55000ea11f7c0800000000000000
+      internalID: -4039417841393994761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_21
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 53
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5113b7b29ebe7b6c0800000000000000
+      internalID: -4127571146772369131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 58
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97305d450fd592f0800000000000000
+      internalID: -966621331136170085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_23
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 58
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e4844109308fce0800000000000000
+      internalID: -1371342169183859094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a8dedbc5b04bd70800000000000000
+      internalID: 9057877243500268035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_25
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 19
+        width: 144
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657a5a980ad0247f0800000000000000
+      internalID: -629926014723184810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_26
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 14
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908e600686703c2b0800000000000000
+      internalID: -5565596569630742519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_27
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 20
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c7eade0aa368e40800000000000000
+      internalID: 5658274444694420573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_28
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 19
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169999038055b0a30800000000000000
+      internalID: 4182530172607109473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_parts_currency_status_29
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 19
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa27d31ec37eaf200800000000000000
+      internalID: 214738180916474543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 17b9198e0597e524c98c3c11165430c7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shop_parts_currency_status_0: 2991708210874146175
+      shop_parts_currency_status_1: 4588184201097988525
+      shop_parts_currency_status_10: 5587605101461393211
+      shop_parts_currency_status_11: 8951596363903947550
+      shop_parts_currency_status_12: 4461436665210593735
+      shop_parts_currency_status_13: -8855053817336821846
+      shop_parts_currency_status_14: -2393301359412770769
+      shop_parts_currency_status_15: 5039501534901202342
+      shop_parts_currency_status_16: 5863879849028858384
+      shop_parts_currency_status_17: 7596570198809421373
+      shop_parts_currency_status_18: 242388236962591657
+      shop_parts_currency_status_19: 3616426946701303090
+      shop_parts_currency_status_2: 2165855210995633631
+      shop_parts_currency_status_20: -4039417841393994761
+      shop_parts_currency_status_21: -4127571146772369131
+      shop_parts_currency_status_22: -966621331136170085
+      shop_parts_currency_status_23: -1371342169183859094
+      shop_parts_currency_status_24: 9057877243500268035
+      shop_parts_currency_status_25: -629926014723184810
+      shop_parts_currency_status_26: -5565596569630742519
+      shop_parts_currency_status_27: 5658274444694420573
+      shop_parts_currency_status_28: 4182530172607109473
+      shop_parts_currency_status_29: 214738180916474543
+      shop_parts_currency_status_3: 965676503276814179
+      shop_parts_currency_status_4: 6926944827795131205
+      shop_parts_currency_status_5: 503787732738420001
+      shop_parts_currency_status_6: -8980550652315989026
+      shop_parts_currency_status_7: 2532630263186426246
+      shop_parts_currency_status_8: 5620665496401875306
+      shop_parts_currency_status_9: 5581082976845459479
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

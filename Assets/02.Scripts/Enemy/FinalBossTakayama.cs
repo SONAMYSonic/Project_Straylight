@@ -2,64 +2,142 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IdolMasterFanGame;
+using TMPro; // 데미지 텍스트용 (선택)
 
 public class FinalBossTakayama : Enemy
 {
     private enum BossState { Idle, NoticePattern, JewelPattern, RapidFirePattern, EmoRushPattern }
 
+    [Header("Final Boss Settings")]
+    [SerializeField] private float _attributeChangeInterval = 5.0f; // 속성 바뀌는 시간
+    [SerializeField] private GameObject _shieldEffect; // 방어막 비주얼 (자식 오브젝트)
+
     [Header("Visuals")]
-    [SerializeField] private GameObject _emoTextGroup; // 에모이 텍스트들이 담긴 자식 오브젝트 (빙글빙글 돌릴 것)
+    [SerializeField] private GameObject _emoTextGroup;
+    [SerializeField] private TextMeshPro _immuneText; // "BLOCK!" 같은 텍스트 띄울 곳 (선택)
 
-    [Header("Pattern - Notice (점검)")]
+    [Header("Pattern - Notice")]
     [SerializeField] private GameObject _noticePrefab;
-    [SerializeField] private float _noticeCooldown = 15f;
 
-    [Header("Pattern - Jewel (폭발)")]
+    [Header("Pattern - Jewel")]
     [SerializeField] private GameObject _jewelPrefab;
-    [SerializeField] private int _jewelCount = 3;
+    [SerializeField] private int _jewelCount = 4;
 
-    [Header("Pattern - RapidFire (한정연타)")]
-    [SerializeField] private GameObject _starPrefab; // UR, SSR 마크 등
-    [SerializeField] private int _rapidFireCount = 10;
+    [Header("Pattern - Star (Rapid)")]
+    [SerializeField] private GameObject _starPrefab; // StarProjectile이 붙은 프리팹
+    [SerializeField] private int _waves = 5; // 탄막 몇 번 쏠지
+    [SerializeField] private int _projectilesPerWave = 7; // 한 번에 몇 발 쏠지
+    [SerializeField] private float _angleStep = 15f; // 탄막 사이 각도
 
-    [Header("Pattern - EmoRush (에모이병)")]
-    [SerializeField] private float _rushSpeed = 8f;
-    [SerializeField] private float _rushDuration = 2.0f;
+    [Header("Pattern - EmoRush")]
+    [SerializeField] private float _rushSpeed = 10f;
+    [SerializeField] private float _rushDuration = 2.5f;
 
     private Transform _playerTransform;
-    private float _patternTimer = 0f;
     private bool _isActing = false;
+    private Coroutine _attributeRoutine;
 
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) _playerTransform = player.transform;
 
-        // 에모이 텍스트 그룹은 평소엔 꺼두거나 안 돌림
         if (_emoTextGroup != null) _emoTextGroup.SetActive(false);
+        if (_shieldEffect != null) _shieldEffect.SetActive(false);
+        if (_immuneText != null) _immuneText.gameObject.SetActive(false);
 
+        // 패턴 루틴 시작
         StartCoroutine(BossRoutine());
+
+        // 속성 변경 루틴 시작
+        _attributeRoutine = StartCoroutine(ChangeAttributeRoutine());
     }
 
     private void Update()
     {
-        // 평소에 플레이어 천천히 추적
         if (!_isActing && _playerTransform != null)
         {
             Vector2 dir = (_playerTransform.position - transform.position).normalized;
-            transform.Translate(dir * 1.5f * Time.deltaTime); // 기본 이동 속도
+            transform.Translate(dir * 1.5f * Time.deltaTime);
             if (GetComponent<SpriteRenderer>() != null)
                 GetComponent<SpriteRenderer>().flipX = dir.x < 0;
         }
     }
 
+    // --- [핵심] 속성 변경 로직 ---
+    private IEnumerator ChangeAttributeRoutine()
+    {
+        while (true)
+        {
+            // 랜덤 속성 선택
+            IdolMode[] modes = { IdolMode.Vocal, IdolMode.Dance, IdolMode.Visual };
+            EnemyAttribute = modes[Random.Range(0, modes.Length)];
+
+            // 시각적 알림 (색상 변경)
+            UpdateColorByMode(EnemyAttribute);
+
+            // [수정] 여기서 쉴드를 껐다 켰다 하지 않음 (시작하자마자 나오는 문제 해결)
+            // 대신 플레이어에게 속성이 바뀌었다는 힌트(반짝임 등)를 주고 싶다면 여기서 처리
+            // 예: StartCoroutine(FlashBossColor()); 
+
+            yield return new WaitForSeconds(_attributeChangeInterval);
+        }
+    }
+
+    private void UpdateColorByMode(IdolMode mode)
+    {
+        // Enemy.cs의 UpdateOriginalColor 사용
+        Color color = Color.white;
+        switch (mode)
+        {
+            case IdolMode.Vocal: color = new Color(1f, 0.4f, 0.7f); break; // 핑크
+            case IdolMode.Dance: color = new Color(0.2f, 0.6f, 1f); break; // 블루
+            case IdolMode.Visual: color = new Color(1f, 0.9f, 0.2f); break; // 옐로우
+        }
+        UpdateOriginalColor(color);
+    }
+
+    // --- [핵심] 데미지 무효화 로직 (Override) ---
+    public override void TakeDamage(int baseDamage, IdolMode attackerMode)
+    {
+        // 1. 속성이 다르면 데미지 0 (무적)
+        if (attackerMode != EnemyAttribute)
+        {
+            StartCoroutine(ShowBlockEffect());
+            return; // 부모의 TakeDamage를 부르지 않음 -> 체력 안 깎임
+        }
+
+        // 2. 속성이 같으면 정상 데미지
+        base.TakeDamage(baseDamage, attackerMode);
+    }
+
+    private IEnumerator ShowBlockEffect()
+    {
+        // 방어막 표시
+        if (_shieldEffect != null) _shieldEffect.SetActive(true);
+
+        // "BLOCK!" 텍스트 표시
+        if (_immuneText != null)
+        {
+            _immuneText.text = "BLOCK!";
+            _immuneText.color = _originalColor; // 현재 보스 색상
+            _immuneText.gameObject.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (_shieldEffect != null) _shieldEffect.SetActive(false);
+        if (_immuneText != null) _immuneText.gameObject.SetActive(false);
+    }
+
+    // --- 패턴 로직 ---
+
     private IEnumerator BossRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(2.0f); // 패턴 사이 대기
+            yield return new WaitForSeconds(2.0f);
 
-            // 랜덤 패턴 선택
             int pattern = Random.Range(0, 4);
             _isActing = true;
 
@@ -75,13 +153,9 @@ public class FinalBossTakayama : Enemy
         }
     }
 
-    // 패턴 1: 점검 공지 날리기
     private IEnumerator Pattern_Notice()
     {
-        Debug.Log("패턴: 긴급 점검!");
-        // 텔레그래프 (잠깐 멈칫)
-        yield return new WaitForSeconds(0.5f);
-
+        // (기존 코드와 동일)
         if (_noticePrefab != null)
         {
             GameObject obj = Instantiate(_noticePrefab, transform.position, Quaternion.identity);
@@ -91,19 +165,16 @@ public class FinalBossTakayama : Enemy
         yield return new WaitForSeconds(1.0f);
     }
 
-    // 패턴 2: 쥬얼 폭탄 던지기
     private IEnumerator Pattern_Jewel()
     {
-        Debug.Log("패턴: 쥬얼 폭발!");
+        // (기존 코드와 동일)
         for (int i = 0; i < _jewelCount; i++)
         {
             if (_jewelPrefab != null)
             {
                 GameObject obj = Instantiate(_jewelPrefab, transform.position, Quaternion.identity);
-                // 플레이어 예상 위치 혹은 약간 랜덤하게
                 Vector2 dir = ((Vector2)_playerTransform.position - (Vector2)transform.position).normalized;
-                dir += Random.insideUnitCircle * 0.2f; // 약간의 오차
-
+                dir += Random.insideUnitCircle * 0.2f;
                 obj.GetComponent<ExplosiveJewel>().Init(dir);
             }
             yield return new WaitForSeconds(0.3f);
@@ -111,76 +182,68 @@ public class FinalBossTakayama : Enemy
         yield return new WaitForSeconds(1.0f);
     }
 
-    // 패턴 3: 한정 연타 (샷건 탄막)
+    // [수정됨] 방사형 탄막 (샷건)
     private IEnumerator Pattern_RapidFire()
     {
-        Debug.Log("패턴: 한정 가챠 연타!");
-        Vector2 targetDir = (_playerTransform.position - transform.position).normalized;
+        Debug.Log("패턴: 한정 가챠 탄막!");
 
-        for (int i = 0; i < _rapidFireCount; i++)
+        for (int w = 0; w < _waves; w++)
         {
-            if (_starPrefab != null)
-            {
-                // 부채꼴 발사 (샷건)
-                int pellets = 3;
-                for (int j = 0; j < pellets; j++)
-                {
-                    float angle = (j - 1) * 15f; // -15, 0, 15도
-                    Vector2 fireDir = Quaternion.Euler(0, 0, angle) * targetDir;
+            if (_starPrefab == null) break;
 
-                    GameObject obj = Instantiate(_starPrefab, transform.position, Quaternion.identity);
-                    // JudgeProjectile을 재활용하거나 별도 스크립트 사용
-                    obj.GetComponent<JudgeProjectile>().Init(fireDir);
-                }
+            Vector2 targetDir = (_playerTransform.position - transform.position).normalized;
+
+            // 시작 각도 계산 (부채꼴의 가장 왼쪽)
+            float startAngle = -(_projectilesPerWave - 1) * _angleStep * 0.5f;
+
+            for (int i = 0; i < _projectilesPerWave; i++)
+            {
+                float currentAngle = startAngle + (i * _angleStep);
+
+                // 타겟 방향 기준으로 회전
+                Vector2 fireDir = Quaternion.Euler(0, 0, currentAngle) * targetDir;
+
+                GameObject obj = Instantiate(_starPrefab, transform.position, Quaternion.identity);
+                obj.GetComponent<StarProjectile>().Init(fireDir);
             }
-            yield return new WaitForSeconds(0.2f);
+
+            // 웨이브 간격
+            yield return new WaitForSeconds(0.5f);
         }
         yield return new WaitForSeconds(1.0f);
     }
 
-    // 패턴 4: 에모이병 (보호막 돌진)
     private IEnumerator Pattern_EmoRush()
     {
-        Debug.Log("패턴: 에모이병 돌진!");
-
-        // 1. 에모이 텍스트 켜기
+        // (기존 코드와 동일, 에모이 텍스트 켜고 돌진)
         if (_emoTextGroup != null) _emoTextGroup.SetActive(true);
-
-        // 2. 기 모으기
         float chargeTime = 1.0f;
         float elapsed = 0f;
         while (elapsed < chargeTime)
         {
-            // 텍스트 회전
             if (_emoTextGroup != null) _emoTextGroup.transform.Rotate(0, 0, 360 * Time.deltaTime);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // 3. 플레이어에게 돌진
         Vector2 rushDir = (_playerTransform.position - transform.position).normalized;
         float rushTimer = 0f;
-
         while (rushTimer < _rushDuration)
         {
-            // 돌진 중에도 회전
-            if (_emoTextGroup != null) _emoTextGroup.transform.Rotate(0, 0, 720 * Time.deltaTime); // 더 빠르게 회전
-
+            if (_emoTextGroup != null) _emoTextGroup.transform.Rotate(0, 0, 720 * Time.deltaTime);
             transform.Translate(rushDir * _rushSpeed * Time.deltaTime);
             rushTimer += Time.deltaTime;
             yield return null;
         }
 
-        // 4. 종료
         if (_emoTextGroup != null) _emoTextGroup.SetActive(false);
         yield return new WaitForSeconds(1.0f);
     }
 
-    // 보스 사망 시
     protected override void Die()
     {
+        if (_attributeRoutine != null) StopCoroutine(_attributeRoutine);
         base.Die();
         Debug.Log("타카야마 격파! 엔딩 크레딧으로...");
-        // TODO: 엔딩 씬 로드 또는 클리어 UI 호출
     }
 }

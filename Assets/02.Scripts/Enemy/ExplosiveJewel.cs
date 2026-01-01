@@ -4,11 +4,11 @@ using UnityEngine;
 public class ExplosiveJewel : MonoBehaviour
 {
     [SerializeField] private float _speed = 8f;
-    [SerializeField] private float _explodeDelay = 1.0f; // 날아가는 시간
-    [SerializeField] private float _explosionRadius = 2.0f;
+    [SerializeField] private float _explodeDelay = 1.5f; // 사거리 조절
+    [SerializeField] private float _explosionRadius = 2.5f;
     [SerializeField] private int _damage = 20;
-    [SerializeField] private float _knockbackForce = 10f;
-    [SerializeField] private GameObject _explosionEffectPrefab; // 폭발 이펙트 (파티클)
+    [SerializeField] private float _knockbackForce = 5f;
+    [SerializeField] private GameObject _explosionEffectPrefab;
 
     private Vector2 _dir;
     private bool _isExploded = false;
@@ -23,8 +23,11 @@ public class ExplosiveJewel : MonoBehaviour
     {
         if (!_isExploded)
         {
-            transform.Translate(_dir * _speed * Time.deltaTime);
-            transform.Rotate(0, 0, 360 * Time.deltaTime); // 쥬얼이니까 빙글빙글
+            // [수정] Space.World를 사용하여 회전과 무관하게 지정된 방향으로 이동
+            transform.Translate(_dir * _speed * Time.deltaTime, Space.World);
+
+            // [수정] 이동과는 별개로 이미지는 빙글빙글 돔
+            transform.Rotate(0, 0, 360 * Time.deltaTime);
         }
     }
 
@@ -39,11 +42,9 @@ public class ExplosiveJewel : MonoBehaviour
         if (_isExploded) return;
         _isExploded = true;
 
-        // 이펙트 생성
         if (_explosionEffectPrefab != null)
             Instantiate(_explosionEffectPrefab, transform.position, Quaternion.identity);
 
-        // 범위 데미지 & 넉백
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _explosionRadius);
         foreach (var hit in hits)
         {
@@ -52,7 +53,6 @@ public class ExplosiveJewel : MonoBehaviour
                 if (hit.TryGetComponent(out PlayerHealth health))
                     health.TakeDamage(_damage);
 
-                // 넉백 처리 (Rigidbody2D가 있다면)
                 if (hit.TryGetComponent(out Rigidbody2D rb))
                 {
                     Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
@@ -60,8 +60,15 @@ public class ExplosiveJewel : MonoBehaviour
                 }
             }
         }
-
-        // 펑 터지고 삭제
         Destroy(gameObject);
+    }
+
+    // [추가] 벽에 닿으면 즉시 폭발
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!_isExploded && collision.CompareTag("Wall"))
+        {
+            Explode();
+        }
     }
 }
