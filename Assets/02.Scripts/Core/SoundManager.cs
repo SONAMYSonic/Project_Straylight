@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Audio; // 오디오 믹서 사용
+using UnityEngine.Audio;
 
 public enum SoundType { BGM, SFX, Voice }
 
@@ -7,22 +7,30 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
 
+    [Header("Audio Mixer")]
+    [SerializeField] private AudioMixer _audioMixer;
+
     [Header("Audio Mixer Groups")]
     [SerializeField] private AudioMixerGroup _bgmGroup;
     [SerializeField] private AudioMixerGroup _sfxGroup;
     [SerializeField] private AudioMixerGroup _voiceGroup;
 
     [Header("Audio Sources")]
-    [SerializeField] private AudioSource _bgmSource;   // 배경음용 (Loop)
-    [SerializeField] private AudioSource _voiceSource; // 목소리용 (보통 겹치지 않게 하나만)
-    [SerializeField] private AudioSource _sfxSource;   // 효과음용 (OneShot)
+    [SerializeField] private AudioSource _bgmSource;
+    [SerializeField] private AudioSource _voiceSource;
+    [SerializeField] private AudioSource _sfxSource;
+
+    // Exposed Parameter 이름 (AudioMixer에서 설정한 이름과 동일해야 함)
+    private const string MIXER_BGM = "BGM";
+    private const string MIXER_SFX = "SFX";
+    private const string MIXER_VOICE = "Voice";
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 노래는 끊기면 안 됨
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -33,7 +41,7 @@ public class SoundManager : MonoBehaviour
     public void PlayBGM(AudioClip clip)
     {
         if (clip == null) return;
-        if (_bgmSource.clip == clip) return; // 이미 같은 노래면 무시
+        if (_bgmSource.clip == clip) return;
 
         _bgmSource.outputAudioMixerGroup = _bgmGroup;
         _bgmSource.clip = clip;
@@ -45,7 +53,6 @@ public class SoundManager : MonoBehaviour
     {
         if (clip == null) return;
 
-        // SFX는 PlayOneShot을 써야 여러 소리가 겹쳐서 납니다 (탕! 탕! 탕!)
         _sfxSource.outputAudioMixerGroup = _sfxGroup;
         _sfxSource.PlayOneShot(clip, volume);
     }
@@ -54,18 +61,59 @@ public class SoundManager : MonoBehaviour
     {
         if (clip == null) return;
 
-        // 보이스는 보통 이전 대사를 끊고 새 대사가 나옵니다.
         _voiceSource.Stop();
         _voiceSource.outputAudioMixerGroup = _voiceGroup;
         _voiceSource.clip = clip;
         _voiceSource.Play();
     }
 
-    // 볼륨 조절 (설정창용, -80 ~ 0db 변환 필요)
     public void SetVolume(SoundType type, float volume)
     {
-        // 슬라이더 값(0~1)을 데시벨(-80~0)로 변환하는 로직 필요
-        // mixer.SetFloat(type.ToString(), Mathf.Log10(volume) * 20); 
-        // (이 부분은 나중에 설정창 만들 때 구현)
+        // AudioMixer가 있으면 Mixer로 조절
+        if (_audioMixer != null)
+        {
+            // 슬라이더(0.0001 ~ 1) -> 데시벨(-80 ~ 0) 변환
+            float db = Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20f;
+
+            string paramName = type switch
+            {
+                SoundType.BGM => MIXER_BGM,
+                SoundType.SFX => MIXER_SFX,
+                SoundType.Voice => MIXER_VOICE,
+                _ => ""
+            };
+
+            if (!string.IsNullOrEmpty(paramName))
+            {
+                bool success = _audioMixer.SetFloat(paramName, db);
+                if (!success)
+                {
+                    Debug.LogWarning($"[SoundManager] AudioMixer에 '{paramName}' 파라미터가 없습니다. Exposed Parameter를 확인하세요.");
+                    // 폴백: AudioSource 볼륨 직접 조절
+                    SetVolumeDirectly(type, volume);
+                }
+            }
+        }
+        else
+        {
+            // AudioMixer가 없으면 AudioSource 볼륨 직접 조절
+            SetVolumeDirectly(type, volume);
+        }
+    }
+
+    private void SetVolumeDirectly(SoundType type, float volume)
+    {
+        switch (type)
+        {
+            case SoundType.BGM:
+                if (_bgmSource != null) _bgmSource.volume = volume;
+                break;
+            case SoundType.SFX:
+                if (_sfxSource != null) _sfxSource.volume = volume;
+                break;
+            case SoundType.Voice:
+                if (_voiceSource != null) _voiceSource.volume = volume;
+                break;
+        }
     }
 }

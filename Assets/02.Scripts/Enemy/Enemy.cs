@@ -119,10 +119,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        // [GameManager 연동] 점수 추가
-        // Instance가 null일 수 있으므로(씬 전환 중 등) null check(?.) 사용
-        GameManager.Instance?.AddKillCount(_scoreValue);
-
+        GameManager.Instance?.OnEnemyKilled(_scoreValue);
         gameObject.SetActive(false);
     }
 }

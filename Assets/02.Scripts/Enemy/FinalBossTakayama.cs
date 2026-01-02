@@ -243,7 +243,10 @@ public class FinalBossTakayama : Enemy
     protected override void Die()
     {
         if (_attributeRoutine != null) StopCoroutine(_attributeRoutine);
-        base.Die();
-        Debug.Log("타카야마 격파! 엔딩 크레딧으로...");
+        
+        base.Die(); // 점수 추가 및 비활성화
+
+        // [추가] 게임 클리어 트리거
+        GameManager.Instance?.GameClear();
     }
 }

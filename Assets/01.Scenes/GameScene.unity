@@ -10564,7 +10564,7 @@ MonoBehaviour:
   _modeStats:
   - ModeType: 1
     WeaponPrefab: {fileID: 2035914605046615224, guid: 68d867b4d826ee54a91b73240ba0bf36, type: 3}
-    Damage: 30
+    Damage: 3000
     AttackCooldown: 0.6
     SwingSpeed: 0.3
     FiresProjectile: 0
@@ -11652,6 +11652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killsPerStage: 10
+  _targetKillCount: 30
   _progressThresholds:
   - 0.28
   - 0.5
@@ -58195,8 +58196,9 @@ MonoBehaviour:
   _sfxGroup: {fileID: 6669533625273240553, guid: 5fed9ecc4d8c93f4c93450b14d19057a, type: 2}
   _voiceGroup: {fileID: 3861313331036086920, guid: 5fed9ecc4d8c93f4c93450b14d19057a, type: 2}
   _bgmSource: {fileID: 695641059}
-  _voiceSource: {fileID: 1069298104}
-  _sfxSource: {fileID: 568206165}
+  _voiceSource: {fileID: 568206165}
+  _sfxSource: {fileID: 1069298104}
+  _audioMixer: {fileID: 24100000, guid: 5fed9ecc4d8c93f4c93450b14d19057a, type: 2}
 --- !u!1 &1989993322
 GameObject:
   m_ObjectHideFlags: 0
