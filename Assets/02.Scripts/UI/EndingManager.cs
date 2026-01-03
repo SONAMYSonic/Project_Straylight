@@ -20,19 +20,21 @@ public class EndingManager : MonoBehaviour
 
     [Header("Grade Thresholds")]
     [Tooltip("S등급 기준 점수")]
-    [SerializeField] private int _gradeS = 15000;
+    [SerializeField] private int _gradeS = 9000;
     [Tooltip("A등급 기준 점수")]
-    [SerializeField] private int _gradeA = 12000;
+    [SerializeField] private int _gradeA = 7000;
     [Tooltip("B등급 기준 점수")]
-    [SerializeField] private int _gradeB = 8000;
+    [SerializeField] private int _gradeB = 4000;
 
     [Header("Score Calculation")]
     [Tooltip("클리어 보너스 점수")]
-    [SerializeField] private int _clearBonus = 10000;
+    [SerializeField] private int _clearBonus = 5000;
+    [Tooltip("킬당 보너스 점수")]
+    [SerializeField] private int _killBonus = 20;
     [Tooltip("1초당 감점")]
-    [SerializeField] private int _timePenaltyPerSecond = 10;
+    [SerializeField] private int _timePenaltyPerSecond = 2;
     [Tooltip("1회 사망당 감점")]
-    [SerializeField] private int _deathPenalty = 500;
+    [SerializeField] private int _deathPenalty = 2000;
 
     [Header("Rolling Effect Settings")]
     [Tooltip("숫자 롤링 기본 지속 시간 (초)")]
@@ -58,10 +60,16 @@ public class EndingManager : MonoBehaviour
     [Tooltip("숫자 롤링 효과음")]
     [SerializeField] private AudioClip _rollingSFX;
     [Tooltip("도장 찍기 효과음")]
-    [SerializeField] private AudioClip _stampSFX;   
+    [SerializeField] private AudioClip _stampSFX;
+    [SerializeField] private AudioClip _backgroundMusic;
 
     private void Start()
     {
+        if (_backgroundMusic != null)
+        {
+            SoundManager.Instance?.PlayBGM(_backgroundMusic);
+        }
+
         _timeText.text = "00:00:00";
         _killText.text = "0";
         _deathText.text = "0";
@@ -79,10 +87,10 @@ public class EndingManager : MonoBehaviour
         int earnedScore = GameSession.TotalScore;
 
         // 최종 점수 계산
-        int totalScore = earnedScore + _clearBonus - ((int)playTime * _timePenaltyPerSecond) - (deaths * _deathPenalty);
-        if (totalScore < 0) totalScore = 0;
+        int totalScore = CalculateTotalScore(earnedScore, kills, playTime, deaths);
 
-        Sprite finalGradeSprite = GetGradeSprite(totalScore);
+        // 등급 결정 (사망 시 S등급 불가)
+        Sprite finalGradeSprite = GetGradeSprite(totalScore, deaths);
 
         yield return new WaitForSeconds(_initialDelay);
 
@@ -96,11 +104,22 @@ public class EndingManager : MonoBehaviour
         yield return StartCoroutine(StampRoutine(finalGradeSprite));
     }
 
+    private int CalculateTotalScore(int earnedScore, int kills, float playTime, int deaths)
+    {
+        int killScore = kills * _killBonus;
+        int timePenalty = (int)playTime * _timePenaltyPerSecond;
+        int deathPenalty = deaths * _deathPenalty;
+
+        int totalScore = earnedScore + _clearBonus + killScore - timePenalty - deathPenalty;
+        
+        return Mathf.Max(0, totalScore);
+    }
+
     private IEnumerator RollingTimeRoutine(float targetTime)
     {
         if (_rollingSFX != null)
         {
-            SoundManager.Instance.PlaySFX(_rollingSFX);
+            SoundManager.Instance?.PlaySFX(_rollingSFX);
         }
 
         float elapsed = 0f;
@@ -122,7 +141,7 @@ public class EndingManager : MonoBehaviour
     {
         if (_rollingSFX != null)
         {
-            SoundManager.Instance.PlaySFX(_rollingSFX);
+            SoundManager.Instance?.PlaySFX(_rollingSFX);
         }
 
         if (duration < 0) duration = _rollingDuration;
@@ -180,14 +199,15 @@ public class EndingManager : MonoBehaviour
         return string.Format("{0:00}:{1:00}:{2:00}", min, sec, mil);
     }
 
-    private Sprite GetGradeSprite(int score)
+    private Sprite GetGradeSprite(int score, int deaths)
     {
         if (_gradeSprites == null || _gradeSprites.Count < 4) return null;
 
-        if (score >= _gradeS) return _gradeSprites[0];
-        if (score >= _gradeA) return _gradeSprites[1];
-        if (score >= _gradeB) return _gradeSprites[2];
-        return _gradeSprites[3];
+        // S등급만 무사망 필수, A/B/F는 점수로만 판정
+        if (deaths == 0 && score >= _gradeS) return _gradeSprites[0]; // S
+        if (score >= _gradeA) return _gradeSprites[1]; // A
+        if (score >= _gradeB) return _gradeSprites[2]; // B
+        return _gradeSprites[3]; // F
     }
 
     public void OnClickReturnTitle()

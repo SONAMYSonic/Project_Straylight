@@ -6,7 +6,7 @@ using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] private int _maxHealth = 3;
+    [SerializeField] private int _baseMaxHealth = 30;
     [SerializeField] private int _damageToPlayer = 10;
     [SerializeField] private int _scoreValue = 1;
 
@@ -19,15 +19,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _flashCount = 2;
 
     // 내부 변수
+    protected int _maxHealth;
     protected int _currentHealth;
     protected SpriteRenderer _spriteRenderer;
     protected Color _originalColor;
     private Sequence _flashSequence;
 
     // 상수 정의 (상성 배율)
-    private const float DAMAGE_MULTIPLIER_STRONG = 1.5f;
-    private const float DAMAGE_MULTIPLIER_WEAK = 0.5f;
-    private const float DAMAGE_MULTIPLIER_NORMAL = 1.0f;
+    private const float DAMAGE_MULTIPLIER_SAME = 1.5f;    // 같은 속성 = 강함
+    private const float DAMAGE_MULTIPLIER_NORMAL = 1.0f;  // 다른 속성 = 보통
 
     private void Awake()
     {
@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
 
         if (_spriteRenderer != null)
             _originalColor = _spriteRenderer.color;
+
+        _maxHealth = _baseMaxHealth;
     }
 
     private void OnEnable()
@@ -60,19 +62,33 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// HP를 직접 설정 (보스용)
+    /// </summary>
+    public void SetHealth(int health)
+    {
+        _maxHealth = health;
+        _currentHealth = health;
+    }
+
+    /// <summary>
+    /// 웨이브 스케일링용 HP 배율 적용
+    /// </summary>
+    public void ApplyHealthMultiplier(float multiplier)
+    {
+        _maxHealth = Mathf.RoundToInt(_baseMaxHealth * multiplier);
+        _currentHealth = _maxHealth;
+    }
+
     public virtual void TakeDamage(int baseDamage, IdolMode attackerMode)
     {
         float multiplier = DAMAGE_MULTIPLIER_NORMAL;
 
-        // 상성 로직 (Vo > Da > Vi > Vo)
-        if (attackerMode == IdolMode.Vocal && EnemyAttribute == IdolMode.Dance) multiplier = DAMAGE_MULTIPLIER_STRONG;
-        else if (attackerMode == IdolMode.Dance && EnemyAttribute == IdolMode.Visual) multiplier = DAMAGE_MULTIPLIER_STRONG;
-        else if (attackerMode == IdolMode.Visual && EnemyAttribute == IdolMode.Vocal) multiplier = DAMAGE_MULTIPLIER_STRONG;
-
-        // 역상성
-        else if (attackerMode == IdolMode.Vocal && EnemyAttribute == IdolMode.Visual) multiplier = DAMAGE_MULTIPLIER_WEAK;
-        else if (attackerMode == IdolMode.Dance && EnemyAttribute == IdolMode.Vocal) multiplier = DAMAGE_MULTIPLIER_WEAK;
-        else if (attackerMode == IdolMode.Visual && EnemyAttribute == IdolMode.Dance) multiplier = DAMAGE_MULTIPLIER_WEAK;
+        // 같은 속성이면 추가 데미지
+        if (attackerMode == EnemyAttribute)
+        {
+            multiplier = DAMAGE_MULTIPLIER_SAME;
+        }
 
         int finalDamage = Mathf.RoundToInt(baseDamage * multiplier);
         _currentHealth -= finalDamage;
@@ -92,11 +108,9 @@ public class Enemy : MonoBehaviour
     {
         if (_spriteRenderer == null) return;
 
-        // 기존 시퀀스 중단
         _flashSequence?.Kill();
         _spriteRenderer.color = _originalColor;
 
-        // DOTween Sequence로 깜빡임 효과
         _flashSequence = DOTween.Sequence();
         float singleFlashDuration = _flashDuration / (_flashCount * 2);
 
@@ -107,9 +121,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 스프라이트 색상 변경 후 _originalColor도 함께 업데이트
-    /// </summary>
     protected void UpdateOriginalColor(Color newColor)
     {
         _originalColor = newColor;

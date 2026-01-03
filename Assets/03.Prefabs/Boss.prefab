@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8eb810a36875214bb4a8247bcb69502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 300
-  _damageToPlayer: 20
+  _baseMaxHealth: 20
+  _damageToPlayer: 15
   _scoreValue: 10
   EnemyAttribute: 1
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -192,9 +192,24 @@ MonoBehaviour:
   - Mode: 3
     BossBodySprite: {fileID: 5843384098998960738, guid: aac783feb82c51e4d8025014b9b0e23c, type: 3}
     ProjectileSprite: {fileID: -2805031200782716434, guid: aac783feb82c51e4d8025014b9b0e23c, type: 3}
+  _bossBaseHealth: 250
+  _healthMultiplierPerTier: 1.5
+  _damageResistanceByTier:
+  - 0.75
+  - 0.5
+  - 0.25
   _moveSpeed: 3
   _attackCooldown: 3
-  _dashSpeed: 15
-  _dashDuration: 0.5
+  _baseDashSpeed: 15
+  _dashSpeedPerTier: 3
+  _baseDashDuration: 0.5
+  _dashDurationPerTier: 0.1
   _backStepDistance: 1
+  _backStepDuration: 0.5
+  _dashChargeDelay: 0.2
   _projectilePrefab: {fileID: 2715923690989367264, guid: 67771866b85eee54abdbdcaa0a84ed77, type: 3}
+  _baseShotCount: 1
+  _shotsPerTier: 2
+  _shotInterval: 0.2
+  _spreadAnglePerShot: 10
+  _minionSpawnInterval: 5

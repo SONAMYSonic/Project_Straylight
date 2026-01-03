@@ -2,53 +2,66 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private float moveSpeed = 2.5f;
-    [SerializeField] private float stopDistance = 0.5f; // 플레이어와 너무 딱 붙지 않게
+    [Header("Movement Settings")]
+    [SerializeField] private float _baseMoveSpeed = 2.5f;
+    [SerializeField] private float _stopDistance = 0.5f;
 
-    private Transform target;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
+    private float _currentMoveSpeed;
+    private Transform _target;
+    private Rigidbody2D _rb;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _currentMoveSpeed = _baseMoveSpeed;
     }
 
     private void OnEnable()
     {
-        // 적이 생성(활성화)될 때마다 플레이어를 다시 찾습니다.
-        // 태그로 찾는 방식은 간단하지만, 나중에는 GameManager에서 넘겨주는 게 더 좋습니다.
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        FindPlayer();
+        _currentMoveSpeed = _baseMoveSpeed;
+    }
 
+    private void FindPlayer()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
-            target = playerObj.transform;
+            _target = playerObj.transform;
         }
+    }
+
+    /// <summary>
+    /// 웨이브 스케일링용 이동속도 배율 적용
+    /// </summary>
+    public void ApplySpeedMultiplier(float multiplier)
+    {
+        _currentMoveSpeed = _baseMoveSpeed * multiplier;
     }
 
     private void FixedUpdate()
     {
-        if (target == null) return;
+        if (_target == null) return;
 
-        // 1. 방향 계산 (플레이어 위치 - 내 위치)
-        Vector2 direction = (target.position - transform.position).normalized;
-        float distance = Vector2.Distance(transform.position, target.position);
+        Vector2 direction = (_target.position - transform.position).normalized;
+        float distance = Vector2.Distance(transform.position, _target.position);
 
-        // 2. 이동 (너무 가까우면 멈춤)
-        if (distance > stopDistance)
+        if (distance > _stopDistance)
         {
-            // rb.MovePosition을 써야 물리 충돌을 유지하며 움직입니다.
-            Vector2 newPos = rb.position + direction * moveSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(newPos);
+            Vector2 newPos = _rb.position + direction * _currentMoveSpeed * Time.fixedDeltaTime;
+            _rb.MovePosition(newPos);
         }
 
-        // 3. 시선 처리 (왼쪽/오른쪽 바라보기)
-        if (direction.x != 0)
+        UpdateFacing(direction);
+    }
+
+    private void UpdateFacing(Vector2 direction)
+    {
+        if (_spriteRenderer != null && direction.x != 0)
         {
-            // 플레이어가 오른쪽에 있으면(x > 0) false(원본), 왼쪽이면 true(반전)
-            spriteRenderer.flipX = direction.x < 0;
+            _spriteRenderer.flipX = direction.x < 0;
         }
     }
 }

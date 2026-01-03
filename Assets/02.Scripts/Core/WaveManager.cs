@@ -5,105 +5,169 @@ using IdolMasterFanGame;
 
 public class WaveManager : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private BoxCollider2D _spawnArea; // 적이 생성될 범위
+    [Header("Spawn Area")]
+    [SerializeField] private BoxCollider2D _spawnArea;
     [SerializeField] private Transform _playerTransform;
-    [SerializeField] private float _safeDistance = 5.0f; // 플레이어 안전 반경
+    [SerializeField] private float _safeDistance = 5.0f;
 
-    [Header("Wave Config")]
-    [SerializeField] private List<GameObject> _enemyPrefabs; // [수정] 배열보다 리스트가 관리하기 편함
-    [SerializeField] private float _spawnInterval = 2.0f;
+    [Header("Enemy Pool Tags")]
+    [Tooltip("ObjectPooler에 등록된 적 태그들 (예: EnemyVocal, EnemyDance, EnemyVisual)")]
+    [SerializeField] private List<string> _enemyPoolTags;
 
-    // 내부 상태 변수
+    [System.Serializable]
+    public class EnemyTagMapping
+    {
+        public string PoolTag;
+        public IdolMode Mode;
+    }
+
+    [Header("Enemy Tag to Mode Mapping")]
+    [SerializeField] private List<EnemyTagMapping> _enemyTagMappings;
+
+    [Header("Spawn Timing")]
+    [Tooltip("기본 스폰 주기 (초)")]
+    [SerializeField] private float _baseSpawnInterval = 2.0f;
+    [Tooltip("웨이브당 스폰 주기 감소 배율 (0.9 = 10% 빨라짐)")]
+    [SerializeField] private float _spawnIntervalMultiplier = 0.9f;
+    [Tooltip("최소 스폰 주기 (초)")]
+    [SerializeField] private float _minSpawnInterval = 0.5f;
+
+    [Header("Difficulty Scaling")]
+    [Tooltip("웨이브당 적 HP 배율")]
+    [SerializeField] private float _healthMultiplierPerWave = 1.2f;
+    [Tooltip("웨이브당 적 이동속도 배율")]
+    [SerializeField] private float _speedMultiplierPerWave = 1.05f;
+
+    private int _currentWave = 0;
+    private float _currentSpawnInterval;
     private bool _isWaveActive = true;
 
     // 필터링 규칙 (보스전용)
     private bool _useFilter = false;
     private IdolMode _targetMode = IdolMode.None;
-    private bool _isInclusive = true; // true: 이것만 소환, false: 이것 빼고 소환
+    private bool _isInclusive = true;
+
+    // 태그-모드 매핑 딕셔너리
+    private Dictionary<string, IdolMode> _tagToModeMap;
+
+    public int CurrentWave => _currentWave;
 
     private void Start()
+    {
+        ValidateReferences();
+        FindPlayerIfNeeded();
+        BuildTagModeMapping();
+
+        _currentSpawnInterval = _baseSpawnInterval;
+        StartCoroutine(SpawnRoutine());
+    }
+
+    private void ValidateReferences()
     {
         if (_spawnArea == null)
             Debug.LogError("[WaveManager] Spawn Area(BoxCollider2D)가 할당되지 않았습니다!");
 
+        if (ObjectPooler.Instance == null)
+            Debug.LogError("[WaveManager] ObjectPooler.Instance가 없습니다!");
+    }
+
+    private void FindPlayerIfNeeded()
+    {
         if (_playerTransform == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null) _playerTransform = player.transform;
         }
+    }
 
-        StartCoroutine(SpawnRoutine());
+    private void BuildTagModeMapping()
+    {
+        _tagToModeMap = new Dictionary<string, IdolMode>();
+        foreach (var mapping in _enemyTagMappings)
+        {
+            if (!_tagToModeMap.ContainsKey(mapping.PoolTag))
+            {
+                _tagToModeMap.Add(mapping.PoolTag, mapping.Mode);
+            }
+        }
     }
 
     private IEnumerator SpawnRoutine()
     {
-        while (true) // 코루틴은 계속 돌되, active 상태만 체크
+        while (true)
         {
             if (_isWaveActive)
             {
                 SpawnEnemy();
             }
-            yield return new WaitForSeconds(_spawnInterval);
+            yield return new WaitForSeconds(_currentSpawnInterval);
         }
     }
 
     private void SpawnEnemy()
     {
-        if (_enemyPrefabs == null || _enemyPrefabs.Count == 0 || _spawnArea == null) return;
+        if (_enemyPoolTags == null || _enemyPoolTags.Count == 0 || _spawnArea == null) return;
+        if (ObjectPooler.Instance == null) return;
 
-        // 1. 소환할 적 후보군 선정 (필터링 적용)
-        GameObject prefabToSpawn = GetFilteredEnemy();
+        string tagToSpawn = GetFilteredEnemyTag();
+        if (string.IsNullOrEmpty(tagToSpawn)) return;
 
-        if (prefabToSpawn == null)
-        {
-            // 필터링 결과 소환할 적이 없으면(예: 해당 속성 적이 아예 없으면) 그냥 아무거나 소환하거나 패스
-            return;
-        }
-
-        // 2. 랜덤 위치 계산 (안전거리 확보)
         Vector2 spawnPos = GetSafeRandomPosition();
+        GameObject spawnedEnemy = ObjectPooler.Instance.SpawnFromPool(tagToSpawn, spawnPos, Quaternion.identity);
 
-        // 3. 적 생성
-        Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        if (spawnedEnemy != null)
+        {
+            ApplyWaveScaling(spawnedEnemy);
+        }
     }
 
-    // [핵심] 조건에 맞는 적을 골라내는 로직
-    private GameObject GetFilteredEnemy()
+    private void ApplyWaveScaling(GameObject enemy)
     {
-        // 필터가 없으면 전체 중 랜덤
-        if (!_useFilter)
+        if (_currentWave <= 0) return;
+
+        // HP 스케일링
+        if (enemy.TryGetComponent(out Enemy enemyScript))
         {
-            return _enemyPrefabs[Random.Range(0, _enemyPrefabs.Count)];
+            float healthMultiplier = Mathf.Pow(_healthMultiplierPerWave, _currentWave);
+            enemyScript.ApplyHealthMultiplier(healthMultiplier);
         }
 
-        // 필터가 있으면 조건에 맞는 후보만 추림
-        List<GameObject> candidates = new List<GameObject>();
-
-        foreach (var prefab in _enemyPrefabs)
+        // 이동속도 스케일링
+        if (enemy.TryGetComponent(out EnemyAI enemyAI))
         {
-            if (prefab == null) continue;
+            float speedMultiplier = Mathf.Pow(_speedMultiplierPerWave, _currentWave);
+            enemyAI.ApplySpeedMultiplier(speedMultiplier);
+        }
+    }
 
-            // 프리팹에서 속성 정보 가져오기
-            if (prefab.TryGetComponent(out Enemy enemyScript))
+    private string GetFilteredEnemyTag()
+    {
+        if (!_useFilter)
+        {
+            return _enemyPoolTags[Random.Range(0, _enemyPoolTags.Count)];
+        }
+
+        List<string> candidates = new List<string>();
+
+        foreach (var tag in _enemyPoolTags)
+        {
+            if (_tagToModeMap.TryGetValue(tag, out IdolMode mode))
             {
-                bool isMatch = (enemyScript.EnemyAttribute == _targetMode);
+                bool isMatch = (mode == _targetMode);
 
-                if (_isInclusive) // "이 속성만 소환해" (Tier 0 보스)
+                if (_isInclusive)
                 {
-                    if (isMatch) candidates.Add(prefab);
+                    if (isMatch) candidates.Add(tag);
                 }
-                else // "이 속성 빼고 소환해" (Tier 1, 2 보스)
+                else
                 {
-                    if (!isMatch) candidates.Add(prefab);
+                    if (!isMatch) candidates.Add(tag);
                 }
             }
         }
 
-        // 후보가 하나도 없으면 꽝 (null 리턴)
         if (candidates.Count == 0) return null;
 
-        // 후보 중 랜덤 선택
         return candidates[Random.Range(0, candidates.Count)];
     }
 
@@ -114,8 +178,9 @@ public class WaveManager : MonoBehaviour
         if (_playerTransform == null) return spawnPos;
 
         int attempts = 0;
-        // 플레이어와 너무 가까우면 다시 뽑기 (최대 10회 시도)
-        while (Vector2.Distance(spawnPos, _playerTransform.position) < _safeDistance && attempts < 10)
+        int maxAttempts = 10;
+
+        while (Vector2.Distance(spawnPos, _playerTransform.position) < _safeDistance && attempts < maxAttempts)
         {
             spawnPos = GetRandomPosition();
             attempts++;
@@ -131,8 +196,6 @@ public class WaveManager : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    // --- 외부 제어 메서드 ---
-
     public void StopWave()
     {
         _isWaveActive = false;
@@ -143,20 +206,29 @@ public class WaveManager : MonoBehaviour
         _isWaveActive = true;
     }
 
-    // GameManager에서 호출할 함수: 소환 규칙 설정
+    public void AdvanceWave()
+    {
+        _currentWave++;
+        UpdateSpawnInterval();
+        Debug.Log($"[WaveManager] 웨이브 {_currentWave} 시작! 스폰 주기: {_currentSpawnInterval:F2}초");
+    }
+
+    private void UpdateSpawnInterval()
+    {
+        _currentSpawnInterval = _baseSpawnInterval * Mathf.Pow(_spawnIntervalMultiplier, _currentWave);
+        _currentSpawnInterval = Mathf.Max(_currentSpawnInterval, _minSpawnInterval);
+    }
+
     public void SetSpawnRule(IdolMode mode, bool onlyThisMode)
     {
         _targetMode = mode;
         _isInclusive = onlyThisMode;
         _useFilter = true;
-
-        // 보스전 중에도 잡몹이 나와야 하므로 웨이브 재개
         _isWaveActive = true;
 
         Debug.Log($"[WaveManager] 규칙 변경: {mode} 모드 {(onlyThisMode ? "전용" : "제외")} 소환");
     }
 
-    // 규칙 초기화 (필요 시 사용)
     public void ResetSpawnRule()
     {
         _useFilter = false;

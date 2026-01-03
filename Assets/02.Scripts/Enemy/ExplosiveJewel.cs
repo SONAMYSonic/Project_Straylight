@@ -63,10 +63,12 @@ public class ExplosiveJewel : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // [추가] 벽에 닿으면 즉시 폭발
+    // [추가] 벽 또는 플레이어에 닿으면 즉시 폭발
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_isExploded && collision.CompareTag("Wall"))
+        if (_isExploded) return;
+
+        if (collision.CompareTag("Wall") || collision.CompareTag("Player"))
         {
             Explode();
         }

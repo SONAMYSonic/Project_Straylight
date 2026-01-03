@@ -5,57 +5,59 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float _moveSpeed = 5f;
 
     [Header("Dash Settings")]
-    [SerializeField] private float dashSpeed = 15f;
-    [SerializeField] private float dashDuration = 0.2f;
-    [SerializeField] private float dashCooldown = 1f;
+    [SerializeField] private float _dashSpeed = 15f;
+    [SerializeField] private float _dashDuration = 0.2f;
+    [SerializeField] private float _baseDashCooldown = 1f;
 
     [Header("Ghost Trail")]
-    [SerializeField] private string ghostTag = "PlayerGhost";
-    [SerializeField] private float ghostSpawnInterval = 0.05f;
+    [SerializeField] private string _ghostTag = "PlayerGhost";
+    [SerializeField] private float _ghostSpawnInterval = 0.05f;
 
-    private Rigidbody2D rb;
-    private PlayerInput input;
-    private PlayerHealth playerHealth;
-    private SpriteRenderer spriteRenderer;
-    private PlayerAudio _playerAudio; // [추가] 오디오 참조
+    private Rigidbody2D _rb;
+    private PlayerInput _input;
+    private PlayerHealth _playerHealth;
+    private SpriteRenderer _spriteRenderer;
+    private PlayerAudio _playerAudio;
 
-    private bool isDashing = false;
-    private float lastDashTime = -10f;
+    private bool _isDashing = false;
+    private float _lastDashTime = -10f;
 
-    public bool IsDashing => isDashing;
+    public bool IsDashing => _isDashing;
+
+    private float CurrentDashCooldown => PlayerStats.Instance != null
+        ? PlayerStats.Instance.ApplyCooldownReduction(_baseDashCooldown)
+        : _baseDashCooldown;
 
     public void Initialize(PlayerInput inputRef)
     {
-        rb = GetComponent<Rigidbody2D>();
-        input = inputRef;
-        playerHealth = GetComponent<PlayerHealth>();
+        _rb = GetComponent<Rigidbody2D>();
+        _input = inputRef;
+        _playerHealth = GetComponent<PlayerHealth>();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        // [추가] 오디오 컴포넌트 가져오기
         _playerAudio = GetComponent<PlayerAudio>();
     }
 
     public void HandleMovement()
     {
-        if (isDashing) return;
+        if (_isDashing) return;
 
-        rb.linearVelocity = input.MoveDir * moveSpeed;
+        _rb.linearVelocity = _input.MoveDir * _moveSpeed;
 
-        if (input.MousePos != Vector2.zero)
+        if (_input.MousePos != Vector2.zero)
         {
-            rb.rotation = 0f;
+            _rb.rotation = 0f;
         }
     }
 
     public void HandleDash()
     {
-        // 쿨타임과 상태 체크 후 통과되면 코루틴 실행
-        if (input.IsDashTriggered && !isDashing && Time.time >= lastDashTime + dashCooldown)
+        if (_input.IsDashTriggered && !_isDashing && Time.time >= _lastDashTime + CurrentDashCooldown)
         {
             StartCoroutine(DashRoutine());
         }
@@ -63,47 +65,43 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DashRoutine()
     {
-        isDashing = true;
-        lastDashTime = Time.time;
+        _isDashing = true;
+        _lastDashTime = Time.time;
 
-        // [추가] 실제 대쉬가 시작될 때 소리 재생 (쿨타임 걸리면 여기 못 들어옴)
         _playerAudio?.PlayDashVoice();
 
         Vector2 dashDir;
-        if (input.MoveDir != Vector2.zero) dashDir = input.MoveDir.normalized;
-        else dashDir = (input.MousePos - rb.position).normalized;
+        if (_input.MoveDir != Vector2.zero) dashDir = _input.MoveDir.normalized;
+        else dashDir = (_input.MousePos - _rb.position).normalized;
 
-        if (playerHealth != null) playerHealth.SetInvincible(true);
-        rb.linearVelocity = dashDir * dashSpeed;
+        if (_playerHealth != null) _playerHealth.SetInvincible(true);
+        _rb.linearVelocity = dashDir * _dashSpeed;
 
         StartCoroutine(SpawnGhostRoutine());
 
-        Debug.Log("Dash Start!");
+        yield return new WaitForSeconds(_dashDuration);
 
-        yield return new WaitForSeconds(dashDuration);
+        _rb.linearVelocity = Vector2.zero;
+        _isDashing = false;
 
-        rb.linearVelocity = Vector2.zero;
-        isDashing = false;
-
-        if (playerHealth != null) playerHealth.SetInvincible(false);
-        Debug.Log("Dash End");
+        if (_playerHealth != null) _playerHealth.SetInvincible(false);
     }
 
     private IEnumerator SpawnGhostRoutine()
     {
-        while (isDashing)
+        while (_isDashing)
         {
-            GameObject ghostObj = ObjectPooler.Instance.SpawnFromPool(ghostTag, transform.position, transform.rotation);
+            GameObject ghostObj = ObjectPooler.Instance?.SpawnFromPool(_ghostTag, transform.position, transform.rotation);
 
-            if (ghostObj != null && spriteRenderer != null)
+            if (ghostObj != null && _spriteRenderer != null)
             {
                 PlayerGhost ghostScript = ghostObj.GetComponent<PlayerGhost>();
                 if (ghostScript != null)
                 {
-                    ghostScript.SetGhost(spriteRenderer.sprite, spriteRenderer.flipX, transform.localScale);
+                    ghostScript.SetGhost(_spriteRenderer.sprite, _spriteRenderer.flipX, transform.localScale);
                 }
             }
-            yield return new WaitForSeconds(ghostSpawnInterval);
+            yield return new WaitForSeconds(_ghostSpawnInterval);
         }
     }
 }

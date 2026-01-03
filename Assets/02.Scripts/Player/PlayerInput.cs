@@ -6,16 +6,20 @@ public class PlayerInput : MonoBehaviour
     public Vector2 MoveDir { get; private set; }
     public Vector2 MousePos { get; private set; }
     public bool IsDashTriggered { get; private set; }
-    public bool IsFireHeld { get; private set; } // 연사 가능
+    public bool IsFireHeld { get; private set; }
     public bool IsMeleeTriggered { get; private set; }
     public bool IsUltTriggered { get; private set; }
 
-    public bool IsAttackHeld { get; private set; } // 총 (연사)
-    public bool IsAttackTap { get; private set; }  // 칼 (단발)
+    public bool IsAttackHeld { get; private set; }
+    public bool IsAttackTap { get; private set; }
 
-    public bool IsSwapVo { get; private set; } // 1번 키
-    public bool IsSwapDa { get; private set; } // 2번 키
-    public bool IsSwapVi { get; private set; } // 3번 키
+    // 마우스 휠 입력
+    public float ScrollY { get; private set; }
+
+    // 숫자키 모드 변경 입력
+    public bool IsVocalKeyPressed { get; private set; }
+    public bool IsDanceKeyPressed { get; private set; }
+    public bool IsVisualKeyPressed { get; private set; }
 
     private Camera mainCam;
 
@@ -37,12 +41,16 @@ public class PlayerInput : MonoBehaviour
 
         // 3. 액션 키 입력
         IsDashTriggered = Input.GetKeyDown(KeyCode.LeftShift);
-        IsAttackHeld = Input.GetMouseButton(0);     // 꾹 누르고 있음
-        IsAttackTap = Input.GetMouseButtonDown(0);  // 딸깍 클릭함
-        IsUltTriggered = Input.GetKeyDown(KeyCode.Space);
+        IsAttackHeld = Input.GetMouseButton(0);
+        IsAttackTap = Input.GetMouseButtonDown(0);
+        IsUltTriggered = Input.GetMouseButtonDown(1); // 우클릭 스킬
 
-        IsSwapVo = Input.GetKeyDown(KeyCode.Alpha1);
-        IsSwapDa = Input.GetKeyDown(KeyCode.Alpha2);
-        IsSwapVi = Input.GetKeyDown(KeyCode.Alpha3);
+        // 4. 마우스 휠 입력
+        ScrollY = Input.mouseScrollDelta.y;
+
+        // 5. 숫자키 모드 변경 (1: Vocal, 2: Dance, 3: Visual)
+        IsVocalKeyPressed = Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1);
+        IsDanceKeyPressed = Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2);
+        IsVisualKeyPressed = Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3);
     }
 }

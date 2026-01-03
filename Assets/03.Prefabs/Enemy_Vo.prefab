@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8590096504798015742}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.06, y: 1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1da989b47acd754f8f44d88846e695b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
-  _damageToPlayer: 10
+  _baseMaxHealth: 30
+  _damageToPlayer: 5
   _scoreValue: 1
   EnemyAttribute: 1
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46cfcd45f9f6014b88ee738570d9d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
-  stopDistance: 0.5
+  _baseMoveSpeed: 2.5
+  _stopDistance: 0.5
 --- !u!95 &3541720205949255972
 Animator:
   serializedVersion: 7

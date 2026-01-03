@@ -8,11 +8,13 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private AudioClip _dashVoice;          // "임임!"
     [SerializeField] private AudioClip _damageVoice;        // "아얏!"
     [SerializeField] private AudioClip _skillVoice;         // "이걸로 끝임다!"
-    [SerializeField] private AudioClip _gameOverVoice;      // [추가] "으앙~", "프로듀서님..."
+    [SerializeField] private AudioClip _deathVoice;      // [추가] "으앙~", "프로듀서님..."
+    [SerializeField] private AudioClip _reviveVoice;         // "호다시마!"
 
     [Header("SFX")]
     [SerializeField] private AudioClip _footstepSFX;
     [SerializeField] private AudioClip _swingSFX;
+    [SerializeField] private AudioClip _reviveSFX;
 
     // 컴포넌트 참조
     private PlayerHealth _health;
@@ -33,7 +35,19 @@ public class PlayerAudio : MonoBehaviour
         if (_health != null)
         {
             _health.OnDamageTaken += PlayDamageSound;
-            _health.OnDie += PlayGameOverSound; // [추가] 사망 시 목소리 재생
+            _health.OnDie += PlayDeathSound; // [추가] 사망 시 목소리 재생
+            _health.OnRevive += PlayReviveSound; // [추가] 부활 시 목소리 재생
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // 이벤트 해제
+        if (_health != null)
+        {
+            _health.OnDamageTaken -= PlayDamageSound;
+            _health.OnDie -= PlayDeathSound;
+            _health.OnRevive -= PlayReviveSound;
         }
     }
 
@@ -55,26 +69,32 @@ public class PlayerAudio : MonoBehaviour
         }
         
         // 공격 효과음은 항상 재생 (겹쳐도 됨)
-        SoundManager.Instance.PlaySFX(_swingSFX);
+        SoundManager.Instance?.PlaySFX(_swingSFX);
     }
 
     public void PlayDashVoice()
     {
-        SoundManager.Instance.PlayVoice(_dashVoice);
+        SoundManager.Instance?.PlayVoice(_dashVoice);
     }
 
     private void PlayDamageSound()
     {
-        SoundManager.Instance.PlayVoice(_damageVoice);
+        SoundManager.Instance?.PlayVoice(_damageVoice);
     }
 
-    public void PlaySkillSound()
+    public void PlaySkillVoice()
     {
-        SoundManager.Instance.PlayVoice(_skillVoice);
+        SoundManager.Instance?.PlayVoice(_skillVoice);
     }
 
-    private void PlayGameOverSound()
+    private void PlayDeathSound()
     {
-        SoundManager.Instance.PlayVoice(_gameOverVoice);
+        SoundManager.Instance?.PlayVoice(_deathVoice);
+    }
+
+    private void PlayReviveSound()
+    {
+        SoundManager.Instance?.PlayVoice(_reviveVoice);
+        SoundManager.Instance?.PlaySFX(_reviveSFX);
     }
 }

@@ -2,19 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IdolMasterFanGame;
-using TMPro; // 데미지 텍스트용 (선택)
+using TMPro;
 
 public class FinalBossTakayama : Enemy
 {
     private enum BossState { Idle, NoticePattern, JewelPattern, RapidFirePattern, EmoRushPattern }
 
+    [Header("Final Boss Stats")]
+    [Tooltip("최종보스 체력")]
+    [SerializeField] private int _finalBossHealth = 500;
+
     [Header("Final Boss Settings")]
     [SerializeField] private float _attributeChangeInterval = 5.0f; // 속성 바뀌는 시간
     [SerializeField] private GameObject _shieldEffect; // 방어막 비주얼 (자식 오브젝트)
+    [SerializeField] private float _moveSpeed = 2f; // 이동 속도
+
+    [Header("Movement Bounds")]
+    [Tooltip("이동 제한 영역 (BoxCollider2D 또는 직접 설정)")]
+    [SerializeField] private BoxCollider2D _movementBounds;
+    [SerializeField] private Vector2 _boundsMin = new Vector2(-20f, -10f);
+    [SerializeField] private Vector2 _boundsMax = new Vector2(20f, 10f);
 
     [Header("Visuals")]
     [SerializeField] private GameObject _emoTextGroup;
-    [SerializeField] private TextMeshPro _immuneText; // "BLOCK!" 같은 텍스트 띄울 곳 (선택)
+    [SerializeField] private GameObject _blockText; // 속성 다를 시 "BLOCK!" 텍스트
 
     [Header("Pattern - Notice")]
     [SerializeField] private GameObject _noticePrefab;
@@ -27,30 +38,58 @@ public class FinalBossTakayama : Enemy
     [SerializeField] private GameObject _starPrefab; // StarProjectile이 붙은 프리팹
     [SerializeField] private int _waves = 5; // 탄막 몇 번 쏠지
     [SerializeField] private int _projectilesPerWave = 7; // 한 번에 몇 발 쏠지
-    [SerializeField] private float _angleStep = 15f; // 탄막 사이 각도
+    [SerializeField] private float _angleStep = 20f; // 탄막 사이 각도
 
     [Header("Pattern - EmoRush")]
     [SerializeField] private float _rushSpeed = 10f;
-    [SerializeField] private float _rushDuration = 2.5f;
+    [SerializeField] private float _rushDuration = 3f;
+
+    [Header("Pattern Timing")]
+    [SerializeField] private float _patternInterval = 2.0f; // 패턴 간격
 
     private Transform _playerTransform;
     private bool _isActing = false;
     private Coroutine _attributeRoutine;
+    private Coroutine _bossRoutine;
 
-    private void Start()
+    private void OnEnable()
     {
+        // 최종보스 HP 설정
+        SetHealth(_finalBossHealth);
+        Debug.Log($"[FinalBoss] HP 설정: {_finalBossHealth}");
+
+        // 플레이어 찾기
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) _playerTransform = player.transform;
 
+        // 이동 범위 설정
+        InitializeMovementBounds();
+
+        // 비주얼 초기화
         if (_emoTextGroup != null) _emoTextGroup.SetActive(false);
         if (_shieldEffect != null) _shieldEffect.SetActive(false);
-        if (_immuneText != null) _immuneText.gameObject.SetActive(false);
+        if (_blockText != null) _blockText.SetActive(false);
 
-        // 패턴 루틴 시작
-        StartCoroutine(BossRoutine());
-
-        // 속성 변경 루틴 시작
+        // 코루틴 시작
+        _bossRoutine = StartCoroutine(BossRoutine());
         _attributeRoutine = StartCoroutine(ChangeAttributeRoutine());
+    }
+
+    private void InitializeMovementBounds()
+    {
+        if (_movementBounds != null)
+        {
+            Bounds bounds = _movementBounds.bounds;
+            _boundsMin = bounds.min;
+            _boundsMax = bounds.max;
+        }
+    }
+
+    private void OnDisable()
+    {
+        // 코루틴 정리
+        if (_bossRoutine != null) StopCoroutine(_bossRoutine);
+        if (_attributeRoutine != null) StopCoroutine(_attributeRoutine);
     }
 
     private void Update()
@@ -58,10 +97,22 @@ public class FinalBossTakayama : Enemy
         if (!_isActing && _playerTransform != null)
         {
             Vector2 dir = (_playerTransform.position - transform.position).normalized;
-            transform.Translate(dir * 1.5f * Time.deltaTime);
-            if (GetComponent<SpriteRenderer>() != null)
-                GetComponent<SpriteRenderer>().flipX = dir.x < 0;
+            transform.Translate(dir * _moveSpeed * Time.deltaTime);
+
+            // 이동 범위 제한
+            ClampPosition();
+
+            if (_spriteRenderer != null)
+                _spriteRenderer.flipX = dir.x < 0;
         }
+    }
+
+    private void ClampPosition()
+    {
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, _boundsMin.x, _boundsMax.x);
+        pos.y = Mathf.Clamp(pos.y, _boundsMin.y, _boundsMax.y);
+        transform.position = pos;
     }
 
     // --- [핵심] 속성 변경 로직 ---
@@ -75,10 +126,6 @@ public class FinalBossTakayama : Enemy
 
             // 시각적 알림 (색상 변경)
             UpdateColorByMode(EnemyAttribute);
-
-            // [수정] 여기서 쉴드를 껐다 켰다 하지 않음 (시작하자마자 나오는 문제 해결)
-            // 대신 플레이어에게 속성이 바뀌었다는 힌트(반짝임 등)를 주고 싶다면 여기서 처리
-            // 예: StartCoroutine(FlashBossColor()); 
 
             yield return new WaitForSeconds(_attributeChangeInterval);
         }
@@ -117,26 +164,31 @@ public class FinalBossTakayama : Enemy
         if (_shieldEffect != null) _shieldEffect.SetActive(true);
 
         // "BLOCK!" 텍스트 표시
-        if (_immuneText != null)
+        if (_blockText != null)
         {
-            _immuneText.text = "BLOCK!";
-            _immuneText.color = _originalColor; // 현재 보스 색상
-            _immuneText.gameObject.SetActive(true);
+            _blockText.SetActive(true);
         }
 
         yield return new WaitForSeconds(0.5f);
 
         if (_shieldEffect != null) _shieldEffect.SetActive(false);
-        if (_immuneText != null) _immuneText.gameObject.SetActive(false);
+        if (_blockText != null) _blockText.SetActive(false);
     }
 
     // --- 패턴 로직 ---
 
     private IEnumerator BossRoutine()
     {
+        // 초기 대기
+        yield return new WaitForSeconds(_patternInterval);
+
         while (true)
         {
-            yield return new WaitForSeconds(2.0f);
+            if (_playerTransform == null)
+            {
+                yield return null;
+                continue;
+            }
 
             int pattern = Random.Range(0, 4);
             _isActing = true;
@@ -150,17 +202,21 @@ public class FinalBossTakayama : Enemy
             }
 
             _isActing = false;
+
+            yield return new WaitForSeconds(_patternInterval);
         }
     }
 
     private IEnumerator Pattern_Notice()
     {
         // (기존 코드와 동일)
-        if (_noticePrefab != null)
+        if (_noticePrefab != null && _playerTransform != null)
         {
             GameObject obj = Instantiate(_noticePrefab, transform.position, Quaternion.identity);
             Vector2 dir = (_playerTransform.position - transform.position).normalized;
-            obj.GetComponent<NoticeProjectile>().Init(dir);
+            
+            var projectile = obj.GetComponent<NoticeProjectile>();
+            if (projectile != null) projectile.Init(dir);
         }
         yield return new WaitForSeconds(1.0f);
     }
@@ -170,12 +226,14 @@ public class FinalBossTakayama : Enemy
         // (기존 코드와 동일)
         for (int i = 0; i < _jewelCount; i++)
         {
-            if (_jewelPrefab != null)
+            if (_jewelPrefab != null && _playerTransform != null)
             {
                 GameObject obj = Instantiate(_jewelPrefab, transform.position, Quaternion.identity);
                 Vector2 dir = ((Vector2)_playerTransform.position - (Vector2)transform.position).normalized;
                 dir += Random.insideUnitCircle * 0.2f;
-                obj.GetComponent<ExplosiveJewel>().Init(dir);
+                
+                var jewel = obj.GetComponent<ExplosiveJewel>();
+                if (jewel != null) jewel.Init(dir);
             }
             yield return new WaitForSeconds(0.3f);
         }
@@ -189,22 +247,19 @@ public class FinalBossTakayama : Enemy
 
         for (int w = 0; w < _waves; w++)
         {
-            if (_starPrefab == null) break;
+            if (_starPrefab == null || _playerTransform == null) break;
 
             Vector2 targetDir = (_playerTransform.position - transform.position).normalized;
-
-            // 시작 각도 계산 (부채꼴의 가장 왼쪽)
             float startAngle = -(_projectilesPerWave - 1) * _angleStep * 0.5f;
 
             for (int i = 0; i < _projectilesPerWave; i++)
             {
                 float currentAngle = startAngle + (i * _angleStep);
-
-                // 타겟 방향 기준으로 회전
                 Vector2 fireDir = Quaternion.Euler(0, 0, currentAngle) * targetDir;
 
                 GameObject obj = Instantiate(_starPrefab, transform.position, Quaternion.identity);
-                obj.GetComponent<StarProjectile>().Init(fireDir);
+                var star = obj.GetComponent<StarProjectile>();
+                if (star != null) star.Init(fireDir);
             }
 
             // 웨이브 간격
@@ -215,7 +270,6 @@ public class FinalBossTakayama : Enemy
 
     private IEnumerator Pattern_EmoRush()
     {
-        // (기존 코드와 동일, 에모이 텍스트 켜고 돌진)
         if (_emoTextGroup != null) _emoTextGroup.SetActive(true);
         float chargeTime = 1.0f;
         float elapsed = 0f;
@@ -226,14 +280,21 @@ public class FinalBossTakayama : Enemy
             yield return null;
         }
 
-        Vector2 rushDir = (_playerTransform.position - transform.position).normalized;
-        float rushTimer = 0f;
-        while (rushTimer < _rushDuration)
+        if (_playerTransform != null)
         {
-            if (_emoTextGroup != null) _emoTextGroup.transform.Rotate(0, 0, 720 * Time.deltaTime);
-            transform.Translate(rushDir * _rushSpeed * Time.deltaTime);
-            rushTimer += Time.deltaTime;
-            yield return null;
+            Vector2 rushDir = (_playerTransform.position - transform.position).normalized;
+            float rushTimer = 0f;
+            while (rushTimer < _rushDuration)
+            {
+                if (_emoTextGroup != null) _emoTextGroup.transform.Rotate(0, 0, 720 * Time.deltaTime);
+                transform.Translate(rushDir * _rushSpeed * Time.deltaTime);
+                
+                // 돌진 중에도 이동 범위 제한
+                ClampPosition();
+                
+                rushTimer += Time.deltaTime;
+                yield return null;
+            }
         }
 
         if (_emoTextGroup != null) _emoTextGroup.SetActive(false);
@@ -243,6 +304,7 @@ public class FinalBossTakayama : Enemy
     protected override void Die()
     {
         if (_attributeRoutine != null) StopCoroutine(_attributeRoutine);
+        if (_bossRoutine != null) StopCoroutine(_bossRoutine);
         
         base.Die(); // 점수 추가 및 비활성화
 

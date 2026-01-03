@@ -13,7 +13,7 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         [Header("Weapon Prefab")]
         public GameObject WeaponPrefab;
         [Header("Combat Stats")]
-        public int Damage;
+        public int BaseDamage;
         public float AttackCooldown;
         public float SwingSpeed;
         public bool FiresProjectile;
@@ -39,7 +39,7 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
     private PlayerInput _input;
     private IdolMode _currentMode = IdolMode.Vocal;
     private ModeStat _currentStat;
-    private PlayerAudio _playerAudio; // [추가] 오디오 참조
+    private PlayerAudio _playerAudio;
 
     private Dictionary<IdolMode, GameObject> _weaponInstances = new Dictionary<IdolMode, GameObject>();
     private Dictionary<IdolMode, MeleeWeapon> _weaponScripts = new Dictionary<IdolMode, MeleeWeapon>();
@@ -49,11 +49,12 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
     private float _lastAttackTime;
     private bool _isAttacking = false;
 
+    // 모드 순서 정의 (Vo -> Da -> Vi)
+    private readonly List<IdolMode> _modeCycle = new List<IdolMode> { IdolMode.Vocal, IdolMode.Dance, IdolMode.Visual };
+
     public void Initialize(PlayerInput inputRef)
     {
         _input = inputRef;
-
-        // [추가] 오디오 컴포넌트 가져오기
         _playerAudio = GetComponent<PlayerAudio>();
 
         SpawnAllWeapons();
@@ -65,19 +66,15 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         foreach (var stat in _modeStats)
         {
             if (_statMap.ContainsKey(stat.ModeType)) continue;
-
             _statMap.Add(stat.ModeType, stat);
-
             if (stat.WeaponPrefab == null) continue;
 
             GameObject obj = Instantiate(stat.WeaponPrefab, _weaponHolder);
             obj.SetActive(false);
-
             MeleeWeapon weaponScript = obj.GetComponent<MeleeWeapon>();
 
             _weaponInstances.Add(stat.ModeType, obj);
-            if (weaponScript != null)
-                _weaponScripts.Add(stat.ModeType, weaponScript);
+            if (weaponScript != null) _weaponScripts.Add(stat.ModeType, weaponScript);
         }
     }
 
@@ -88,9 +85,14 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
             RotateTowardsMouse();
         }
 
-        if (_input.IsSwapVo) TryChangeMode(IdolMode.Vocal);
-        else if (_input.IsSwapDa) TryChangeMode(IdolMode.Dance);
-        else if (_input.IsSwapVi) TryChangeMode(IdolMode.Visual);
+        // 숫자키로 모드 직접 변경
+        if (_input.IsVocalKeyPressed) ChangeMode(IdolMode.Vocal);
+        else if (_input.IsDanceKeyPressed) ChangeMode(IdolMode.Dance);
+        else if (_input.IsVisualKeyPressed) ChangeMode(IdolMode.Visual);
+
+        // 마우스 휠로 모드 순환 변경
+        if (_input.ScrollY > 0) CycleMode(1);
+        else if (_input.ScrollY < 0) CycleMode(-1);
 
         if (!_isAttacking && _input.IsAttackTap && Time.time >= _lastAttackTime + _currentStat.AttackCooldown)
         {
@@ -98,40 +100,31 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         }
     }
 
+    private void CycleMode(int direction)
+    {
+        int currentIndex = _modeCycle.IndexOf(_currentMode);
+        int nextIndex = (currentIndex + direction) % _modeCycle.Count;
+
+        if (nextIndex < 0) nextIndex += _modeCycle.Count;
+
+        ChangeMode(_modeCycle[nextIndex]);
+    }
+
     private void RotateTowardsMouse()
     {
         if (_weaponHolder == null) return;
-
         Vector2 direction = (_input.MousePos - (Vector2)transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
         _weaponHolder.rotation = Quaternion.Euler(0, 0, angle);
 
-        // 무기만 상하 반전 (플레이어 방향은 PlayerAnimation이 처리)
-        if (Mathf.Abs(angle) > 90)
-        {
-            _weaponHolder.localScale = new Vector3(1, -1, 1);
-        }
-        else
-        {
-            _weaponHolder.localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    private void TryChangeMode(IdolMode newMode)
-    {
-        if (_currentMode != newMode)
-        {
-            ChangeMode(newMode);
-        }
+        if (Mathf.Abs(angle) > 90) _weaponHolder.localScale = new Vector3(1, -1, 1);
+        else _weaponHolder.localScale = new Vector3(1, 1, 1);
     }
 
     private void ChangeMode(IdolMode newMode, bool force = false)
     {
         if (!_weaponInstances.ContainsKey(newMode)) return;
-
-        if (_currentWeaponObj != null)
-            _currentWeaponObj.SetActive(false);
+        if (_currentWeaponObj != null) _currentWeaponObj.SetActive(false);
 
         _currentMode = newMode;
         _currentStat = _statMap[newMode];
@@ -140,38 +133,44 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         OnModeChanged?.Invoke(_currentMode);
     }
 
+    private int CalculateFinalDamage()
+    {
+        if (PlayerStats.Instance != null)
+        {
+            return PlayerStats.Instance.CalculateFinalDamage(_currentStat.BaseDamage);
+        }
+        return _currentStat.BaseDamage;
+    }
+
     private IEnumerator SwingSwordRoutine()
     {
         _isAttacking = true;
         _lastAttackTime = Time.time;
-
-        // [추가] 공격 소리 재생
         _playerAudio?.PlayAttackVoice();
+
+        int finalDamage = CalculateFinalDamage();
 
         if (_weaponScripts.TryGetValue(_currentMode, out MeleeWeapon weaponScript))
         {
-            weaponScript.SetStats(_currentStat.Damage, _currentMode);
+            weaponScript.SetStats(finalDamage, _currentMode);
         }
 
         if (_currentStat.FiresProjectile)
         {
             Vector3 spawnPos = _firePoint != null ? _firePoint.position : transform.position;
             Vector2 direction = (_input.MousePos - (Vector2)spawnPos).normalized;
-
-            GameObject bulletObj = ObjectPooler.Instance.SpawnFromPool(_projectileTag, spawnPos, Quaternion.identity);
+            GameObject bulletObj = ObjectPooler.Instance?.SpawnFromPool(_projectileTag, spawnPos, Quaternion.identity);
 
             if (bulletObj != null && bulletObj.TryGetComponent(out Bullet bulletScript))
             {
-                bulletScript.SetBulletStats(_currentStat.Damage, _currentMode);
+                bulletScript.SetBulletStats(finalDamage, _currentMode);
                 bulletScript.SetDirection(direction);
             }
         }
 
         _currentWeaponObj.SetActive(true);
-
         float duration = _currentStat.SwingSpeed;
         float elapsed = 0f;
-
         Quaternion startRot = Quaternion.Euler(0, 0, _swingStartAngle);
         Quaternion endRot = Quaternion.Euler(0, 0, _swingEndAngle);
 
@@ -179,9 +178,7 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         {
             float t = elapsed / duration;
             t = Mathf.Sin(t * Mathf.PI * SWING_EASING_MULTIPLIER);
-
             _currentWeaponObj.transform.localRotation = Quaternion.Lerp(startRot, endRot, t);
-
             elapsed += Time.deltaTime;
             yield return null;
         }
