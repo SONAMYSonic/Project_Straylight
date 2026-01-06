@@ -69,6 +69,9 @@ public class MidBossJudge : Enemy
         _difficultyTier = tier;
         EnemyAttribute = mode;
 
+        // 보스는 넉백 면역
+        _knockbackImmune = true;
+
         // 난이도 강화
         ApplyTierScaling();
         // [핵심] 모드에 맞는 스프라이트 적용
@@ -203,8 +206,11 @@ public class MidBossJudge : Enemy
         if (_playerTransform == null) return;
 
         Vector2 dir = (_playerTransform.position - transform.position).normalized;
-        transform.Translate(dir * _moveSpeed * Time.deltaTime);
         
+        // position을 직접 설정 (flipX 영향 완전히 제거)
+        transform.position += (Vector3)(dir * _moveSpeed * Time.deltaTime);
+        
+        // 스프라이트 방향 설정
         if (_spriteRenderer != null)
             _spriteRenderer.flipX = dir.x < 0;
     }
@@ -217,7 +223,11 @@ public class MidBossJudge : Enemy
         Vector3 targetDir = (_playerTransform.position - transform.position).normalized;
         Vector3 backPos = startPos - (targetDir * _backStepDistance);
 
-        // 뒤로 물러남
+        // 스프라이트 방향 설정
+        if (_spriteRenderer != null)
+            _spriteRenderer.flipX = targetDir.x < 0;
+
+        // 뒤로 물러남 (position 직접 설정)
         float elapsed = 0f;
         while (elapsed < _backStepDuration)
         {
@@ -225,17 +235,23 @@ public class MidBossJudge : Enemy
             elapsed += Time.deltaTime;
             yield return null;
         }
+        transform.position = backPos;
 
         yield return new WaitForSeconds(_dashChargeDelay);
 
         // 돌진
         if (_playerTransform == null) yield break;
         Vector3 dashDir = (_playerTransform.position - transform.position).normalized;
-        float dashTimer = 0f;
+        
+        // 돌진 방향으로 스프라이트 설정
+        if (_spriteRenderer != null)
+            _spriteRenderer.flipX = dashDir.x < 0;
 
+        float dashTimer = 0f;
         while (dashTimer < _currentDashDuration)
         {
-            transform.Translate(dashDir * _currentDashSpeed * Time.deltaTime);
+            // position을 직접 설정 (flipX 영향 완전히 제거)
+            transform.position += dashDir * _currentDashSpeed * Time.deltaTime;
             dashTimer += Time.deltaTime;
             yield return null;
         }

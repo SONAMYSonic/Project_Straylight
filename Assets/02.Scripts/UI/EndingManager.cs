@@ -81,7 +81,8 @@ public class EndingManager : MonoBehaviour
 
     private IEnumerator ResultSequenceRoutine()
     {
-        float playTime = Time.time - GameSession.StartTime;
+        // 저장된 플레이 시간 사용
+        float playTime = GameSession.PlayTime;
         int kills = GameSession.TotalKills;
         int deaths = GameSession.DeathCount;
         int earnedScore = GameSession.TotalScore;

@@ -21,6 +21,9 @@ public class PlayerInput : MonoBehaviour
     public bool IsDanceKeyPressed { get; private set; }
     public bool IsVisualKeyPressed { get; private set; }
 
+    // 일시정지 입력
+    public bool IsPauseTriggered { get; private set; }
+
     private Camera mainCam;
 
     void Start()
@@ -52,5 +55,8 @@ public class PlayerInput : MonoBehaviour
         IsVocalKeyPressed = Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1);
         IsDanceKeyPressed = Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2);
         IsVisualKeyPressed = Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3);
+
+        // 6. 일시정지 (ESC)
+        IsPauseTriggered = Input.GetKeyDown(KeyCode.Escape);
     }
 }

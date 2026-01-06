@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using IdolMasterFanGame;
 using TMPro;
+using DG.Tweening;
 
 public class FinalBossTakayama : Enemy
 {
@@ -27,6 +28,18 @@ public class FinalBossTakayama : Enemy
     [SerializeField] private GameObject _emoTextGroup;
     [SerializeField] private GameObject _blockText; // 속성 다를 시 "BLOCK!" 텍스트
 
+    [Header("Death Animation")]
+    [Tooltip("사망 시 변경할 스프라이트 (우는 모습)")]
+    [SerializeField] private Sprite _deathSprite;
+    [Tooltip("사망 연출 시간 (초)")]
+    [SerializeField] private float _deathDuration = 2.0f;
+    [Tooltip("아래로 내려가는 거리")]
+    [SerializeField] private float _sinkDistance = 3.0f;
+    [Tooltip("좌우 떨림 강도")]
+    [SerializeField] private float _shakeIntensity = 0.3f;
+    [Tooltip("좌우 떨림 속도")]
+    [SerializeField] private int _shakeVibrato = 30;
+
     [Header("Pattern - Notice")]
     [SerializeField] private GameObject _noticePrefab;
 
@@ -49,6 +62,7 @@ public class FinalBossTakayama : Enemy
 
     private Transform _playerTransform;
     private bool _isActing = false;
+    private bool _isDying = false;
     private Coroutine _attributeRoutine;
     private Coroutine _bossRoutine;
 
@@ -57,6 +71,9 @@ public class FinalBossTakayama : Enemy
         // 최종보스 HP 설정
         SetHealth(_finalBossHealth);
         Debug.Log($"[FinalBoss] HP 설정: {_finalBossHealth}");
+
+        // 보스는 넉백 면역
+        _knockbackImmune = true;
 
         // 플레이어 찾기
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -71,6 +88,7 @@ public class FinalBossTakayama : Enemy
         if (_blockText != null) _blockText.SetActive(false);
 
         // 코루틴 시작
+        _isDying = false;
         _bossRoutine = StartCoroutine(BossRoutine());
         _attributeRoutine = StartCoroutine(ChangeAttributeRoutine());
     }
@@ -90,14 +108,20 @@ public class FinalBossTakayama : Enemy
         // 코루틴 정리
         if (_bossRoutine != null) StopCoroutine(_bossRoutine);
         if (_attributeRoutine != null) StopCoroutine(_attributeRoutine);
+        DOTween.Kill(transform);
+        DOTween.Kill(_spriteRenderer);
     }
 
     private void Update()
     {
+        if (_isDying) return;
+
         if (!_isActing && _playerTransform != null)
         {
             Vector2 dir = (_playerTransform.position - transform.position).normalized;
-            transform.Translate(dir * _moveSpeed * Time.deltaTime);
+            
+            // position을 직접 설정 (flipX 영향 완전히 제거)
+            transform.position += (Vector3)(dir * _moveSpeed * Time.deltaTime);
 
             // 이동 범위 제한
             ClampPosition();
@@ -147,6 +171,8 @@ public class FinalBossTakayama : Enemy
     // --- [핵심] 데미지 무효화 로직 (Override) ---
     public override void TakeDamage(int baseDamage, IdolMode attackerMode)
     {
+        if (_isDying) return;
+
         // 1. 속성이 다르면 데미지 0 (무적)
         if (attackerMode != EnemyAttribute)
         {
@@ -184,7 +210,7 @@ public class FinalBossTakayama : Enemy
 
         while (true)
         {
-            if (_playerTransform == null)
+            if (_playerTransform == null || _isDying)
             {
                 yield return null;
                 continue;
@@ -287,7 +313,9 @@ public class FinalBossTakayama : Enemy
             while (rushTimer < _rushDuration)
             {
                 if (_emoTextGroup != null) _emoTextGroup.transform.Rotate(0, 0, 720 * Time.deltaTime);
-                transform.Translate(rushDir * _rushSpeed * Time.deltaTime);
+                
+                // position을 직접 설정 (flipX 영향 완전히 제거)
+                transform.position += (Vector3)(rushDir * _rushSpeed * Time.deltaTime);
                 
                 // 돌진 중에도 이동 범위 제한
                 ClampPosition();
@@ -303,12 +331,54 @@ public class FinalBossTakayama : Enemy
 
     protected override void Die()
     {
+        if (_isDying) return;
+        _isDying = true;
+
+        // 코루틴 정지
         if (_attributeRoutine != null) StopCoroutine(_attributeRoutine);
         if (_bossRoutine != null) StopCoroutine(_bossRoutine);
-        
-        base.Die(); // 점수 추가 및 비활성화
 
-        // [추가] 게임 클리어 트리거
+        // 사망 연출 시작
+        StartCoroutine(DeathAnimationRoutine());
+    }
+
+    private IEnumerator DeathAnimationRoutine()
+    {
+        // 1. 스프라이트 변경 (우는 모습)
+        if (_deathSprite != null && _spriteRenderer != null)
+        {
+            _spriteRenderer.sprite = _deathSprite;
+            _spriteRenderer.color = Color.white;
+        }
+
+        // 2. 비주얼 오브젝트 숨기기
+        if (_emoTextGroup != null) _emoTextGroup.SetActive(false);
+        if (_shieldEffect != null) _shieldEffect.SetActive(false);
+        if (_blockText != null) _blockText.SetActive(false);
+
+        // 3. DOTween 애니메이션 동시 실행
+        Vector3 targetPos = transform.position + Vector3.down * _sinkDistance;
+
+        // 좌우 떨림
+        transform.DOShakePosition(_deathDuration, _shakeIntensity, _shakeVibrato, 0f, false, true)
+            .SetEase(Ease.Linear);
+
+        // 아래로 내려감
+        transform.DOMoveY(targetPos.y, _deathDuration)
+            .SetEase(Ease.InQuad);
+
+        // 투명해짐
+        _spriteRenderer.DOFade(0f, _deathDuration)
+            .SetEase(Ease.InQuad);
+
+        // 연출 대기
+        yield return new WaitForSeconds(_deathDuration);
+
+        // 4. 기본 Die 처리 (점수 추가 및 비활성화)
+        GameManager.Instance?.OnEnemyKilled(1);
+        gameObject.SetActive(false);
+
+        // 5. 게임 클리어
         GameManager.Instance?.GameClear();
     }
 }

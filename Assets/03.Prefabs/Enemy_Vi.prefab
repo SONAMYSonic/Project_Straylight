@@ -178,12 +178,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseMaxHealth: 30
-  _damageToPlayer: 5
+  _damageToPlayer: 8
   _scoreValue: 1
   EnemyAttribute: 3
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
   _flashDuration: 0.15
   _flashCount: 2
+  _hitEffectPrefab: {fileID: 158079018918336430, guid: b6143d6e336b7cb4b96e85cf82c7b77f, type: 3}
+  _deathEffectPrefab: {fileID: 2962471854713323504, guid: c2cba34ae2df0a947acf276d40a4838a, type: 3}
+  _hitSFX: {fileID: 8300000, guid: 2c08926fad89a4a44994336bc755f2eb, type: 3}
+  _deathSFX: {fileID: 8300000, guid: 57604a54be883744abc5cc3e6cb9e0b3, type: 3}
+  _knockbackForce: 1
+  _knockbackImmune: 0
 --- !u!114 &2846038896291394384
 MonoBehaviour:
   m_ObjectHideFlags: 0

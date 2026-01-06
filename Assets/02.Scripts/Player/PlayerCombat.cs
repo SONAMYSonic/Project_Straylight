@@ -40,6 +40,7 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
     private IdolMode _currentMode = IdolMode.Vocal;
     private ModeStat _currentStat;
     private PlayerAudio _playerAudio;
+    private PlayerHealth _playerHealth;
 
     private Dictionary<IdolMode, GameObject> _weaponInstances = new Dictionary<IdolMode, GameObject>();
     private Dictionary<IdolMode, MeleeWeapon> _weaponScripts = new Dictionary<IdolMode, MeleeWeapon>();
@@ -48,17 +49,58 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
     private GameObject _currentWeaponObj;
     private float _lastAttackTime;
     private bool _isAttacking = false;
+    private Coroutine _swingCoroutine;
 
-    // 모드 순서 정의 (Vo -> Da -> Vi)
     private readonly List<IdolMode> _modeCycle = new List<IdolMode> { IdolMode.Vocal, IdolMode.Dance, IdolMode.Visual };
 
     public void Initialize(PlayerInput inputRef)
     {
         _input = inputRef;
         _playerAudio = GetComponent<PlayerAudio>();
+        _playerHealth = GetComponent<PlayerHealth>();
+
+        // 부활 이벤트 구독
+        if (_playerHealth != null)
+        {
+            _playerHealth.OnRevive += ResetAttackState;
+        }
 
         SpawnAllWeapons();
         ChangeMode(IdolMode.Vocal, force: true);
+    }
+
+    private void OnDestroy()
+    {
+        if (_playerHealth != null)
+        {
+            _playerHealth.OnRevive -= ResetAttackState;
+        }
+    }
+
+    private void OnDisable()
+    {
+        // 비활성화 시 공격 상태 리셋
+        ResetAttackState();
+    }
+
+    private void ResetAttackState()
+    {
+        // 진행 중인 공격 코루틴 중지
+        if (_swingCoroutine != null)
+        {
+            StopCoroutine(_swingCoroutine);
+            _swingCoroutine = null;
+        }
+
+        // 공격 상태 리셋
+        _isAttacking = false;
+
+        // 무기 비활성화 및 회전 초기화
+        if (_currentWeaponObj != null)
+        {
+            _currentWeaponObj.SetActive(false);
+            _currentWeaponObj.transform.localRotation = Quaternion.identity;
+        }
     }
 
     private void SpawnAllWeapons()
@@ -85,18 +127,16 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
             RotateTowardsMouse();
         }
 
-        // 숫자키로 모드 직접 변경
         if (_input.IsVocalKeyPressed) ChangeMode(IdolMode.Vocal);
         else if (_input.IsDanceKeyPressed) ChangeMode(IdolMode.Dance);
         else if (_input.IsVisualKeyPressed) ChangeMode(IdolMode.Visual);
 
-        // 마우스 휠로 모드 순환 변경
         if (_input.ScrollY > 0) CycleMode(1);
         else if (_input.ScrollY < 0) CycleMode(-1);
 
         if (!_isAttacking && _input.IsAttackTap && Time.time >= _lastAttackTime + _currentStat.AttackCooldown)
         {
-            StartCoroutine(SwingSwordRoutine());
+            _swingCoroutine = StartCoroutine(SwingSwordRoutine());
         }
     }
 
@@ -146,7 +186,9 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
     {
         _isAttacking = true;
         _lastAttackTime = Time.time;
+
         _playerAudio?.PlayAttackVoice();
+        _playerAudio?.PlayAttackSFX(_currentMode);
 
         int finalDamage = CalculateFinalDamage();
 
@@ -186,5 +228,6 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         _currentWeaponObj.SetActive(false);
         _currentWeaponObj.transform.localRotation = Quaternion.identity;
         _isAttacking = false;
+        _swingCoroutine = null;
     }
 }

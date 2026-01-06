@@ -3,7 +3,7 @@ using IdolMasterFanGame;
 
 /// <summary>
 /// 디버그용 컨트롤러 - 테스트 목적으로만 사용
-/// 빌드 시 비활성화 또는 제거 필요
+/// 빌드 시 자동으로 비활성화됨
 /// </summary>
 public class DebugController : MonoBehaviour
 {
@@ -21,6 +21,15 @@ public class DebugController : MonoBehaviour
 
     private int _currentPressCount = 0;
     private float _lastPressTime = 0f;
+
+    private void Awake()
+    {
+        // 에디터가 아닌 빌드에서는 자동 비활성화
+#if !UNITY_EDITOR
+        _enableDebug = false;
+        gameObject.SetActive(false);
+#endif
+    }
 
     private void Update()
     {

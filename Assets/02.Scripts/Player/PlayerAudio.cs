@@ -1,48 +1,50 @@
 using System.Collections.Generic;
 using UnityEngine;
+using IdolMasterFanGame;
 
 public class PlayerAudio : MonoBehaviour
 {
-    [Header("Voices")]
-    [SerializeField] private List<AudioClip> _attackVoices; // "에잇!", "핫!"
-    [SerializeField] private AudioClip _dashVoice;          // "임임!"
-    [SerializeField] private AudioClip _damageVoice;        // "아얏!"
-    [SerializeField] private AudioClip _skillVoice;         // "이걸로 끝임다!"
-    [SerializeField] private AudioClip _deathVoice;      // [추가] "으앙~", "프로듀서님..."
-    [SerializeField] private AudioClip _reviveVoice;         // "호다시마!"
+    [Header("Attack Voices")]
+    [SerializeField] private List<AudioClip> _attackVoices;
 
-    [Header("SFX")]
+    [Header("Attack SFX by Mode")]
+    [Tooltip("Vocal 모드 공격 효과음")]
+    [SerializeField] private AudioClip _vocalAttackSFX;
+    [Tooltip("Dance 모드 공격 효과음")]
+    [SerializeField] private AudioClip _danceAttackSFX;
+    [Tooltip("Visual 모드 공격 효과음")]
+    [SerializeField] private AudioClip _visualAttackSFX;
+
+    [Header("Other Voices")]
+    [SerializeField] private AudioClip _dashVoice;
+    [SerializeField] private AudioClip _damageVoice;
+    [SerializeField] private AudioClip _skillVoice;
+    [SerializeField] private AudioClip _deathVoice;
+    [SerializeField] private AudioClip _reviveVoice;
+
+    [Header("Other SFX")]
     [SerializeField] private AudioClip _footstepSFX;
-    [SerializeField] private AudioClip _swingSFX;
     [SerializeField] private AudioClip _reviveSFX;
 
-    // 컴포넌트 참조
     private PlayerHealth _health;
-    private AudioSource _attackVoiceSource;
 
     private void Awake()
     {
         _health = GetComponent<PlayerHealth>();
-        
-        // 공격 보이스 전용 AudioSource 생성 (겹침 방지)
-        _attackVoiceSource = gameObject.AddComponent<AudioSource>();
-        _attackVoiceSource.playOnAwake = false;
     }
 
     private void Start()
     {
-        // 이벤트 구독
         if (_health != null)
         {
             _health.OnDamageTaken += PlayDamageSound;
-            _health.OnDie += PlayDeathSound; // [추가] 사망 시 목소리 재생
-            _health.OnRevive += PlayReviveSound; // [추가] 부활 시 목소리 재생
+            _health.OnDie += PlayDeathSound;
+            _health.OnRevive += PlayReviveSound;
         }
     }
 
     private void OnDestroy()
     {
-        // 이벤트 해제
         if (_health != null)
         {
             _health.OnDamageTaken -= PlayDamageSound;
@@ -51,25 +53,32 @@ public class PlayerAudio : MonoBehaviour
         }
     }
 
-    // Update 제거함: 대쉬 소리는 PlayerMovement가 직접 호출, 공격 소리는 PlayerCombat이 직접 호출
-
-    // --- 재생 로직 ---
-
+    /// <summary>
+    /// 공격 보이스 재생 (재생 중이면 무시)
+    /// </summary>
     public void PlayAttackVoice()
     {
-        // 공격 보이스가 재생 중이 아닐 때만 재생 (겹침 방지)
-        if (_attackVoiceSource != null && !_attackVoiceSource.isPlaying)
+        if (_attackVoices != null && _attackVoices.Count > 0)
         {
-            if (_attackVoices != null && _attackVoices.Count > 0)
-            {
-                int index = Random.Range(0, _attackVoices.Count);
-                _attackVoiceSource.clip = _attackVoices[index];
-                _attackVoiceSource.Play();
-            }
+            int index = Random.Range(0, _attackVoices.Count);
+            SoundManager.Instance?.PlayVoiceIfNotPlaying(_attackVoices[index]);
         }
-        
-        // 공격 효과음은 항상 재생 (겹쳐도 됨)
-        SoundManager.Instance?.PlaySFX(_swingSFX);
+    }
+
+    /// <summary>
+    /// 속성별 공격 효과음 재생
+    /// </summary>
+    public void PlayAttackSFX(IdolMode mode)
+    {
+        AudioClip clip = mode switch
+        {
+            IdolMode.Vocal => _vocalAttackSFX,
+            IdolMode.Dance => _danceAttackSFX,
+            IdolMode.Visual => _visualAttackSFX,
+            _ => _vocalAttackSFX
+        };
+
+        SoundManager.Instance?.PlaySFX(clip);
     }
 
     public void PlayDashVoice()

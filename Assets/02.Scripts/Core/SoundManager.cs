@@ -168,6 +168,24 @@ public class SoundManager : MonoBehaviour
         _voiceSource.Play();
     }
 
+    /// <summary>
+    /// 보이스가 재생 중이 아닐 때만 재생 (겹침 방지)
+    /// </summary>
+    public void PlayVoiceIfNotPlaying(AudioClip clip)
+    {
+        if (clip == null) return;
+        if (_voiceSource.isPlaying) return;
+
+        _voiceSource.outputAudioMixerGroup = _voiceGroup;
+        _voiceSource.clip = clip;
+        _voiceSource.Play();
+    }
+
+    /// <summary>
+    /// 보이스가 재생 중인지 확인
+    /// </summary>
+    public bool IsVoicePlaying => _voiceSource != null && _voiceSource.isPlaying;
+
     public void SetVolume(SoundType type, float volume)
     {
         if (_audioMixer != null)

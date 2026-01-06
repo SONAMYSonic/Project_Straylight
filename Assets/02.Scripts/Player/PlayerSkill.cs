@@ -17,11 +17,15 @@ public class PlayerSkill : MonoBehaviour
     [Header("Camera Shake")]
     [SerializeField] private float _shakeIntensity = 5.0f;
 
+    [Header("Hit Stop")]
+    [Tooltip("스킬 발동 시 히트스탑 시간 (초)")]
+    [SerializeField] private float _hitStopDuration = 0.05f;
+
     private PlayerInput _input;
     private PlayerAudio _playerAudio;
-    private float _lastSkillTime = -999f;
+    private float _lastSkillTime;
     private bool _isUsingSkill = false;
-    private bool _isCooldownReady = true;
+    private bool _isCooldownReady = false;
 
     private float CurrentCooldown => PlayerStats.Instance != null 
         ? PlayerStats.Instance.ApplyCooldownReduction(_baseCooldown) 
@@ -35,7 +39,8 @@ public class PlayerSkill : MonoBehaviour
 
     private void Start()
     {
-        _lastSkillTime = -999f;
+        _lastSkillTime = Time.time;
+        _isCooldownReady = false;
     }
 
     private void Update()
@@ -85,6 +90,11 @@ public class PlayerSkill : MonoBehaviour
 
     private void OnSkillCutsceneFinished()
     {
+        StartCoroutine(ApplySkillDamageWithHitStop());
+    }
+
+    private IEnumerator ApplySkillDamageWithHitStop()
+    {
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
         int killCount = 0;
@@ -96,6 +106,14 @@ public class PlayerSkill : MonoBehaviour
                 enemy.TakeDamage(finalDamage, IdolMode.None);
                 killCount++;
             }
+        }
+
+        // 히트스탑 적용
+        if (_hitStopDuration > 0f)
+        {
+            Time.timeScale = 0f;
+            yield return new WaitForSecondsRealtime(_hitStopDuration);
+            Time.timeScale = 1f;
         }
 
         CameraShakeManager.Instance?.ShakeCamera(_shakeIntensity);

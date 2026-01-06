@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
     public event Action OnGameOver;
+    public event Action<bool> OnPauseChanged;
 
     [Header("Game Settings")]
     [Tooltip("각 웨이브에서 보스 등장까지 필요한 킬 수 (웨이브별)")]
@@ -30,7 +31,8 @@ public class GameManager : MonoBehaviour
     
     public bool IsGameOver { get; private set; } = false;
     public bool IsBossBattleActive { get; private set; } = false;
-    public bool CanRevive => true; // 무제한 부활
+    public bool IsPaused { get; private set; } = false;
+    public bool CanRevive => true;
 
     [Header("Boss Rush Settings")]
     [SerializeField] private GameObject _midBossPrefab;
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
     private int _waveKillCount = 0;
     private bool _isFinalBossSpawned = false;
     private bool _isWaitingForBuffSelection = false;
+    private PlayerInput _playerInput;
 
     private void Awake()
     {
@@ -66,7 +69,53 @@ public class GameManager : MonoBehaviour
         InitializeBossOrder();
         UpdateProgressUI();
         StartGameBGM();
+
+        // 플레이어 입력 참조
+        if (_playerObject != null)
+            _playerInput = _playerObject.GetComponent<PlayerInput>();
     }
+
+    private void Update()
+    {
+        // ESC 키로 일시정지 토글 (게임오버/버프선택 중이 아닐 때만)
+        if (_playerInput != null && _playerInput.IsPauseTriggered)
+        {
+            if (!IsGameOver && !_isWaitingForBuffSelection)
+            {
+                TogglePause();
+            }
+        }
+    }
+
+    // --- 일시정지 시스템 ---
+
+    public void TogglePause()
+    {
+        if (IsPaused) ResumeGame();
+        else PauseGame();
+    }
+
+    public void PauseGame()
+    {
+        if (IsPaused) return;
+
+        IsPaused = true;
+        Time.timeScale = 0f;
+        OnPauseChanged?.Invoke(true);
+        UIManager.Instance?.ShowPauseMenu();
+    }
+
+    public void ResumeGame()
+    {
+        if (!IsPaused) return;
+
+        IsPaused = false;
+        Time.timeScale = 1f;
+        OnPauseChanged?.Invoke(false);
+        UIManager.Instance?.HidePauseMenu();
+    }
+
+    // --- 기존 코드 ---
 
     private void InitializeGameSession()
     {
@@ -254,12 +303,14 @@ public class GameManager : MonoBehaviour
     private void ShowBuffSelectionUI()
     {
         _isWaitingForBuffSelection = true;
+        Time.timeScale = 0f;  // 버프 선택 중 일시정지
         UIManager.Instance?.ShowBuffSelection();
     }
 
     public void ResumeAfterBuffSelection()
     {
         _isWaitingForBuffSelection = false;
+        Time.timeScale = 1f;  // 버프 선택 후 재개
 
         AdvanceWave();
         ResumeWaveSpawning();
@@ -290,6 +341,7 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        GameSession.FinalizePlayTime();
         Invoke(nameof(LoadEndingScene), _endingSceneDelay);
     }
 
@@ -304,6 +356,7 @@ public class GameManager : MonoBehaviour
 
         IsGameOver = true;
         GameSession.DeathCount++;
+        Time.timeScale = 0f;  // 게임오버 시 일시정지
         StopWaveSpawning();
         OnGameOver?.Invoke();
     }
@@ -314,6 +367,7 @@ public class GameManager : MonoBehaviour
 
         ReviveCount++;
         IsGameOver = false;
+        Time.timeScale = 1f;  // 부활 시 재개
 
         PlayerHealth playerHealth = _playerObject.GetComponent<PlayerHealth>();
         playerHealth?.Revive();
@@ -331,6 +385,7 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1f;
+        GameSession.ResetSession();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
