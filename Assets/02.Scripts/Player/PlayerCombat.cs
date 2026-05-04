@@ -34,13 +34,20 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
     [SerializeField] private float _swingStartAngle = 60f;
     [SerializeField] private float _swingEndAngle = -60f;
 
+    [Header("Auto Targeting")]
+    [Tooltip("자동 타겟팅 사거리 (이 안에 적이 있어야 자동 공격)")]
+    [SerializeField] private float _attackRange = 10f;
+
     private const float SWING_EASING_MULTIPLIER = 0.5f;
 
-    private PlayerInput _input;
+    public Transform CurrentTarget => _currentTarget;
+
+    private PlayerInputReader _input;
     private IdolMode _currentMode = IdolMode.Vocal;
     private ModeStat _currentStat;
     private PlayerAudio _playerAudio;
     private PlayerHealth _playerHealth;
+    private Transform _currentTarget;
 
     private Dictionary<IdolMode, GameObject> _weaponInstances = new Dictionary<IdolMode, GameObject>();
     private Dictionary<IdolMode, MeleeWeapon> _weaponScripts = new Dictionary<IdolMode, MeleeWeapon>();
@@ -53,7 +60,7 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
 
     private readonly List<IdolMode> _modeCycle = new List<IdolMode> { IdolMode.Vocal, IdolMode.Dance, IdolMode.Visual };
 
-    public void Initialize(PlayerInput inputRef)
+    public void Initialize(PlayerInputReader inputRef)
     {
         _input = inputRef;
         _playerAudio = GetComponent<PlayerAudio>();
@@ -122,11 +129,16 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
 
     public void HandleAttack()
     {
-        if (!_isAttacking)
+        // 1. 자동 타겟팅 (가장 가까운 적)
+        _currentTarget = FindNearestEnemy();
+
+        // 2. 공격 중이 아닐 때만 무기를 타겟 방향으로 회전
+        if (!_isAttacking && _currentTarget != null)
         {
-            RotateTowardsMouse();
+            RotateTowardsTarget(_currentTarget);
         }
 
+        // 3. 모드 변경 (수동 - 핵심 메카닉)
         if (_input.IsVocalKeyPressed) ChangeMode(IdolMode.Vocal);
         else if (_input.IsDanceKeyPressed) ChangeMode(IdolMode.Dance);
         else if (_input.IsVisualKeyPressed) ChangeMode(IdolMode.Visual);
@@ -134,10 +146,33 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         if (_input.ScrollY > 0) CycleMode(1);
         else if (_input.ScrollY < 0) CycleMode(-1);
 
-        if (!_isAttacking && _input.IsAttackTap && Time.time >= _lastAttackTime + _currentStat.AttackCooldown)
+        // 4. 자동 공격 (타겟이 있고 쿨다운 끝났을 때)
+        if (!_isAttacking && _currentTarget != null && Time.time >= _lastAttackTime + _currentStat.AttackCooldown)
         {
             _swingCoroutine = StartCoroutine(SwingSwordRoutine());
         }
+    }
+
+    private Transform FindNearestEnemy()
+    {
+        Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        if (enemies.Length == 0) return null;
+
+        Vector2 myPos = transform.position;
+        float minDistSq = _attackRange * _attackRange;
+        Transform nearest = null;
+
+        foreach (var enemy in enemies)
+        {
+            if (enemy == null || !enemy.gameObject.activeInHierarchy) continue;
+            float distSq = ((Vector2)enemy.transform.position - myPos).sqrMagnitude;
+            if (distSq < minDistSq)
+            {
+                minDistSq = distSq;
+                nearest = enemy.transform;
+            }
+        }
+        return nearest;
     }
 
     private void CycleMode(int direction)
@@ -150,10 +185,10 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         ChangeMode(_modeCycle[nextIndex]);
     }
 
-    private void RotateTowardsMouse()
+    private void RotateTowardsTarget(Transform target)
     {
-        if (_weaponHolder == null) return;
-        Vector2 direction = (_input.MousePos - (Vector2)transform.position).normalized;
+        if (_weaponHolder == null || target == null) return;
+        Vector2 direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         _weaponHolder.rotation = Quaternion.Euler(0, 0, angle);
 
@@ -200,7 +235,9 @@ public class PlayerCombat : MonoBehaviour, IModeChangeHandler
         if (_currentStat.FiresProjectile)
         {
             Vector3 spawnPos = _firePoint != null ? _firePoint.position : transform.position;
-            Vector2 direction = (_input.MousePos - (Vector2)spawnPos).normalized;
+            Vector2 direction = _currentTarget != null
+                ? ((Vector2)_currentTarget.position - (Vector2)spawnPos).normalized
+                : (Vector2)_weaponHolder.right;
             GameObject bulletObj = ObjectPooler.Instance?.SpawnFromPool(_projectileTag, spawnPos, Quaternion.identity);
 
             if (bulletObj != null && bulletObj.TryGetComponent(out Bullet bulletScript))

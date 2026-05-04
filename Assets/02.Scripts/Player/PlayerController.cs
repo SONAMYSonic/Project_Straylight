@@ -10,19 +10,19 @@ public class PlayerController : MonoBehaviour
     [Tooltip("피격 시 카메라 흔들림 강도")]
     [SerializeField] private float _damageShakeIntensity = 2.0f;
 
-    private PlayerInput _input;
+    private PlayerInputReader _input;
     private PlayerMovement _movement;
     private PlayerCombat _combat;
     private PlayerHealth _health;
 
     private void Awake()
     {
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<PlayerInputReader>();
         _movement = GetComponent<PlayerMovement>();
         _combat = GetComponent<PlayerCombat>();
         _health = GetComponent<PlayerHealth>();
 
-        if (_input == null) _input = gameObject.AddComponent<PlayerInput>();
+        if (_input == null) _input = gameObject.AddComponent<PlayerInputReader>();
         if (_movement == null) _movement = gameObject.AddComponent<PlayerMovement>();
         if (_combat == null) _combat = gameObject.AddComponent<PlayerCombat>();
 

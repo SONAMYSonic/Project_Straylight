@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.unity3d.com)",
+      "mcp__unityMCP__manage_scene",
+      "mcp__unityMCP__read_console"
+    ]
+  }
+}

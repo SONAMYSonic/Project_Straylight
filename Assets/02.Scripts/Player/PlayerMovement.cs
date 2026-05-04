@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _ghostSpawnInterval = 0.05f;
 
     private Rigidbody2D _rb;
-    private PlayerInput _input;
+    private PlayerInputReader _input;
     private PlayerHealth _playerHealth;
     private SpriteRenderer _spriteRenderer;
     private PlayerAudio _playerAudio;
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         ? PlayerStats.Instance.ApplyCooldownReduction(_baseDashCooldown)
         : _baseDashCooldown;
 
-    public void Initialize(PlayerInput inputRef)
+    public void Initialize(PlayerInputReader inputRef)
     {
         _rb = GetComponent<Rigidbody2D>();
         _input = inputRef;

@@ -21,7 +21,7 @@ public class PlayerSkill : MonoBehaviour
     [Tooltip("스킬 발동 시 히트스탑 시간 (초)")]
     [SerializeField] private float _hitStopDuration = 0.05f;
 
-    private PlayerInput _input;
+    private PlayerInputReader _input;
     private PlayerAudio _playerAudio;
     private float _lastSkillTime;
     private bool _isUsingSkill = false;
@@ -33,7 +33,7 @@ public class PlayerSkill : MonoBehaviour
 
     private void Awake()
     {
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<PlayerInputReader>();
         _playerAudio = GetComponent<PlayerAudio>();
     }
 

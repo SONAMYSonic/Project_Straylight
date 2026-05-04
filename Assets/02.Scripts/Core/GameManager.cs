@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     private int _waveKillCount = 0;
     private bool _isFinalBossSpawned = false;
     private bool _isWaitingForBuffSelection = false;
-    private PlayerInput _playerInput;
+    private PlayerInputReader _playerInput;
 
     private void Awake()
     {
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
         // 플레이어 입력 참조
         if (_playerObject != null)
-            _playerInput = _playerObject.GetComponent<PlayerInput>();
+            _playerInput = _playerObject.GetComponent<PlayerInputReader>();
     }
 
     private void Update()
